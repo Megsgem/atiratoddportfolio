@@ -51,6 +51,7 @@
                 </a>
             </div>
         </p>
+        <!--Switching-->
         <h3 style="margin-bottom:5px">Switching Mechanic</h3>
         <div style="float:right;text-align:center;margin-right:120px;margin-left:40px;margin-top:15px;font-size:130%">
             <img src="videos/switching mechanic.gif" alt="Switching Mechanic GIF" width="700" height="400">
@@ -59,6 +60,22 @@
             One of the main mechanics of this game is the mechanics that allows the player to switch between light and dark.
             Not only is this mechanic the way that the game fits into the theme of the jam as it means that the contrast between light and dark is a central part of the game
             but it also allows the player to use platforms that they previously couldn't access.
+        </p>
+        <!--Movement-->
+        <h3 style="margin-bottom:5px">Movement</h3>
+        <p style="font-size:150%;margin-top:15px">
+            Another important feature of the game is the player's movement. This was my first time making a 2D platformer game so initially it was
+            somewhat difficult for me to figure out how to implement some aspects of the player's movement. Making the player move from left
+            to right was fairly simple as this was something I had done in other games but the main thing I experienced trouble with was the jumping mechanic.
+            <br>...<br>
+            The code I used to handle jumping went through many iterations as I had some issues with making it work correctly.
+            <br>...<br>
+            Another issue I had with player movement was the fact that the player was able to climb walls which is something that I didn't 
+            want them to be able to do as it removed many challenges in the game. I was able to quickly figure out that this issue was because
+            the boolean I used to check whether the player was on the ground was true whenever the player collided with any part of a platform,
+            including the sides of them. I managed to solve this issue by adding an additional collider to the bottom edge of the player which would
+            only interact with the floor and not the sides of the platforms and then making sure the player was only considered to be on the ground
+            when this collider was interacting with a platform.
         </p>
     </body>
 </html>

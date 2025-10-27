@@ -86,16 +86,40 @@
             it is a certain distance away from its original starting position. When the player enters the door's box collider, I used a 'Set Timer by Event' node to call the 'Open Door'
             event every 0.01 seconds in order to make the door open smoothly.
             <br><br>
-            Getting the door to close smoothly was somewhat harder than opening it as at first I kept encountering an error 
+            Getting the door to close smoothly was somewhat harder than opening it as at first I kept encountering an error that the way I had originally tried to accomplish this would
+            cause an infinite loop. At first, the way I had tried to make the door close was similar to how I had made the door open by creating a custom event and binding this to a 
+            timer which would call this custom event every 0.01 seconds once the player has exitted the door's box collider except the custom event would move the door in the oposite 
+            direction to the way the 'Open Door' custom event would. However, this original method would cause an infinite loop to occur. I eventually figured out that this was because
+            the door was constantly trying to close once the player had left its box collider. Fixing this was fairly easy as I just needed to add a 'Do Once' node which meant that once
+            the door was closed, it wouldn't keep on trying to close itself.
+            <br><br>
+            These base door classes are the doors that I used the most throughout my game as for most of the doors in my game, I just needed them to open and close. However, for the room
+            where the player would fight the boss enemy, I wanted the some doors that would be able to be locked and unlocked. This was because I didn't want the player to be able to leave
+            this room once the boss battle had begun and I also didn't want them to be able to move on until they had defeated the boss. I first created a child of each of the base door
+            classes (the left door and the right door) and I added a new boolean variable to these child classes which stored whether the door was locked or not. This variable is checked
+            before the door is opened so that the door isn't opened once it is locked and it is set to true once the door is closed and the player has crossed the threshold of the door.
+            The only issue I initially had with this was that if the player had passed by the door (making the door open) without going through it, allowed the door to close again and then
+            went through the door, the door wouldn't lock once the player was in the boss room thus allowing them to possibly escape during the boss fight. I eventually managed to fix
+            this by instead checking whether the value of the boolean variable should be set to true every time the timer ticked rather than just once the door was closed. I originally
+            hadn't done this as it would have been more computationally expensive but it was the only way I could find to solve this issue. These were the doors I used for the entrance
+            to the boss room but I still needed to make doors for the exit to the boss room which would stay locked until the boss enemy was defeated.
+            <br><br>
+            For these doors, I needed some way of checking whether the boss enemy had been defeated. I originally tried to do this within the Blueprint for the doors but I found that
+            this wouldn't work so I needed to use a different approach so I decided to use the Level Blueprint for this. Since this was the first time I had ever used the Level
+            Blueprint, I decided to do some research before proceeding with this approach to make sure that I understood the Level Blueprint and whether using it would be the correct
+            solution. Once I learned more about the Level Blueprint and decided to use it, the solution was fairly simple as all I needed to do within the Level Blueprint was to
+             get a reference to the boss enemy actor, check the variable which stored whether it had been defeated, get references to the door actors and then set the variables 
+             which stored whether they were locked. I also made sure that the doors were only set to unlocked once as, even though setting them as unlocked multiple times 
+             wouldn't affect the doors' functionality, it would be more computationally expensive if the variable in the door classes was constantly being set.
         </p>
-        <h3 style="margin-bottom:5px">Enemy AI</h3>
+        <h3 style="margin-bottom:5px;margin-top:10px">Enemy AI</h3>
         <p style="margin-top:15px;font-size:150%">
             In total, there are 6 types of enemies that the player encounters throughout the game as well as the final boss enemy they battle at the end and I wanted each of
             these enemies to feel different to one another. One way I did this was with the way the enemy's AI would dictate the way it moved and the way in which it attacked.
             <br><br>
             For movement, I made 2 ways that the enemy would behave: moving to random places nearby or chasing the player.
         </p>
-        <h3 style="margin-bottom:5px">Weapons</h3>
+        <h3 style="margin-bottom:5px; margin-top:10px">Weapons</h3>
         <p style="font-size:150%;margin-top:15px">
             For this game, I wanted both the player and the enemies to have a relatively wide range of unique weapons which they could use. The framework we were provided with
             provided a base weapon class which I used to build my weapons upon. I made 4 additional weapons on top of the base weapon class and I wanted each weapon to not only

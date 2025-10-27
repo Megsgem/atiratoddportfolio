@@ -43,7 +43,10 @@
             </p>
         </div>
         <p>
-            This is a game I made as part of the Mechanics Prototyping module I took in my first year of university. We were provided with a framework which
+            This is a game I made as part of the Mechanics Prototyping module I took in my first year of university. We were provided with a framework which contained some base
+            functionality for certain things such as the player and their starting weapon and we were expected to build upon this framework in order to create our game. In the
+            game, you have to navigate through the level, battling enemies using a variety of different weapons, avoiding lava and other environmental dangers before finally 
+            taking on a boss battle in order to escape.
             <!--
             <br><br>
             <div style="margin-left:120px;margin-right:40px;font-size: 150%;background-color:rgb(4,5,6); border-radius:10px">
@@ -61,28 +64,70 @@
                 </p>
             </div>
             -->
-            <br><br>
-            <a href = "https://megsgem.itch.io/tank-game">
-                <img src = "images/homepage/play icon 7.png" alt = "Play Icon" width = 90 height = 93.6>
-            </a>
+            <br>
+            <div style="margin-right:120px;margin-left:1100px">
+                <a href = "https://megsgem.itch.io/tank-game">
+                    <img src = "images/homepage/play icon 7.png" alt = "Play Icon" width = 90 height = 93.6>
+                </a>
+            </div>
         </p>
         <hr>
         <!--Mechanics info sections-->
+        <h3 style="margin-bottom:5px">Doors</h3>
+        <p style="margin-top:15px; font-size:150%">
+            One of the things that I made that wasn't based on anything we were given in the framework was the functionality for the doors in my game. The main thing I wanted the doors
+            in my game to do was to just open smoothly when the player got near and to close when they moved away. However, I did also need to make doors that locked specifically for the boss
+            room.
+            <br><br>
+            I started by first making a base door class which handles the basic functionality of making the door open and close. Due to the 3D models we were given as part
+            of the framework, I had to make seperate actors for the left and right doors. Aside from the mesh for the door, these actors also had a box collider and I used
+            ...
+            to check whether the player was within this box collider. Once it has detected that the player is within its box collider
+        </p>
         <h3 style="margin-bottom:5px">Enemy AI</h3>
-        <p style="margin-top:5px">
+        <p style="margin-top:15px;font-size:150%">
             In total, there are 6 types of enemies that the player encounters throughout the game as well as the final boss enemy they battle at the end and I wanted each of
             these enemies to feel different to one another. One way I did this was with the way the enemy's AI would dictate the way it moved and the way in which it attacked.
             <br><br>
             For movement, I made 2 ways that the enemy would behave: moving to random places nearby or chasing the player.
         </p>
         <h3 style="margin-bottom:5px">Weapons</h3>
-        <p style="margin-bottom:700px;">
+        <p style="font-size:150%;margin-top:15px">
             For this game, I wanted both the player and the enemies to have a relatively wide range of unique weapons which they could use. The framework we were provided with
-            provided a base weapon class which I used to build my weapons upon.
+            provided a base weapon class which I used to build my weapons upon. I made 4 additional weapons on top of the base weapon class and I wanted each weapon to not only
+            do different amounts of damage and for the projectiles to work differently but also for each weapon to have a different feel to them.
+            <br><br>
+            Before creating any additional weapons, I first edited the base weapon class to contain a fire rate variable so that the weapons would fire projectiles at a set rate.
+            Every new weapon class I created is a child of this base weapon class so this allowed for all of the weapons to have different fire rates. For each new weapon I also had
+            to create new projectile classes which were children of the base projectile class we were provided with.
+            <br><br>
+            I made 5 additional player weapons on top of the base weapon that the player starts with: a faster, 'automatic' type weapon; a blaster weapon, a weapon with bouncing projectiles;
+            a grenade-launcher like weapon with exploding projectiles and a flamethrower. For the weapons that fire projectiles - which is all except for the flamethrower - I gave each
+            of them different fire rates and made the projectiles they fired do different amounts of damage based on the way I wanted that weapon to feel when the player was using it.
+            For example, the faster weapon has a higher fire rate than the other weapons as I wanted it to have a more 'automatic' feel to it, thus the cooldown time for it is shorter.
+            Conversely, the blaster weapon has a lower fire rate and a higher cooldown time in order to try and simulate the feel of it being 'charged' in order to fire a projectile. To
+            further help give the weapon this feel, the projectiles it fires are bigger than other projectiles and also do more damage.
+            <br><br>
+            The weapon that fires exploding projectiles is somewhat different to the others as I gave it functionality tonot just damage the object it hits but to also apply radial 
+            damage to objects within a certain radius of its impact point. This weapon's projectiles also have gravity applied to them while the others don't, giving the
+            effect that this weapon is firing actual objects rather than just some sort of energy. I also added camera shake upon an exploding projectile's explosion to make it
+            seem more like an explosion had occurred.
+            <br><br>
+            The flamethrower is also different to the other weapons as I got rid of this weapon class's ability to spawn projectiles and it instead uses a particle system to
+            simulate fire. In order to detect what has been hit and apply damage accordingly, this weapon class uses a multi sphere trace node to detect any enemies or destructibles 
+            that were hit, adds any of these that are detected to an array and then loops through this array to apply damage to everything that has been hit before finally 
+            setting the weapon's cooldown.
+            <br><br>
+            As well as the weapon's for the player I created 2 aditional enemy weapons on top of the base enemy weapon that most of them have. The first of these weapons is a 
+            homing weapon which will home in on the player once they have been fired. These projectiles aren't spherical like the other kinds of projectiles so I had to give them
+            functionality to face the direction they have been fired in by using the 'Rinterp To' node to interpolate between its current rotation and where its target is.
+            I also set the player as a target for these homing projectiles meaning they will home in on the player. The second additional enemy weapon I made were mines that the enemies
+            can drop that will explode when the player gets within the bounds of its collider. Like the player's exploding projectiles, I added camera shake to these projectiles too 
+            to give the effect of an explosion.
         </p>
         <h2>What I Learned</h2>
         <p>
-            During the process of making this game, I learned many
+            During the process of making this game, I learned many things about Blueprint as this was my first time using it.
         </p>
         <hr>
         <br><br>

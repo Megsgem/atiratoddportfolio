@@ -81,8 +81,12 @@
             <br><br>
             I started by first making a base door class which handles the basic functionality of making the door open and close. Due to the 3D models we were given as part
             of the framework, I had to make seperate actors for the left and right doors. Aside from the mesh for the door, these actors also had a box collider and I used
-            ...
-            to check whether the player was within this box collider. Once it has detected that the player is within its box collider
+            a 'On Component Overlap' node alongside custom collision chanels to check whether the player was within this box collider. I then made a custom event which would be
+            used to open the door and would be called when the player enters the door's box collider. Every time this event is called, the door is moved by a small amount until
+            it is a certain distance away from its original starting position. When the player enters the door's box collider, I used a 'Set Timer by Event' node to call the 'Open Door'
+            event every 0.01 seconds in order to make the door open smoothly.
+            <br><br>
+            Getting the door to close smoothly was somewhat harder than opening it as at first I kept encountering an error 
         </p>
         <h3 style="margin-bottom:5px">Enemy AI</h3>
         <p style="margin-top:15px;font-size:150%">

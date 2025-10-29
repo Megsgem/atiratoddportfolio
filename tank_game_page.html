@@ -117,7 +117,27 @@
             In total, there are 6 types of enemies that the player encounters throughout the game as well as the final boss enemy they battle at the end and I wanted each of
             these enemies to feel different to one another. One way I did this was with the way the enemy's AI would dictate the way it moved and the way in which it attacked.
             <br><br>
-            For movement, I made 2 ways that the enemy would behave: moving to random places nearby or chasing the player.
+            Before making any unique enemy classes, I first made a base enemy class. This contains the base enemy's mesh and a sphere collider as well as the base health for all
+            enemies, the base fire rate for all enemies and the functionality for: the enemy's behaviour when it is damaged, its behaviour when it dies, its attacks, 
+            its movement and detecting whether the player is close by.
+            <br><br>
+            I then made two child classes of this base enemy class, each of which would move in a different way: moving to random places nearby or chasing the player.
+            In order to make the enemy move randomly around the room they are in, I used a nav mesh so that the enemy could know what points were reachable. I then used the 
+            'Get Random Reachable Point In Radius' node in order to get a random point that the enemy could reach. This is then set as the destination that the enemy will move 
+            to using the 'AI Move To' node, thus making the enemy move to random points around the room.
+            For the enemy that would chase the player, I also used the 'AI Move To' node but instead of setting a target destination, I set the player as a target actor that the
+            enemy would move towards. In order for this to work, I also had to check whether the player was valid before the enemy moves towards them so if the player actor doesn't 
+            currently exist (for example, if they are dead), then the enemy will stop chasing them.
+            <br><br>
+            These different movement behaviours did make the different enemies seem somewhat distinct from one another but I also wanted there to be different ways that the enemies
+            would attack the player. As well as giving the enemies different weapons, I also made their attacking behaviour different with there being 2 different attacking behaviours
+            that the enemies could have: shooting randomly without aiming or aiming at the player. To make the functionality for the enemy to fire randomly at the player, I used the 
+            'Random Rotator' node to get a random rotation for the z-axis of the enemy's turret - and thus a random direction for the enemy to fire in. This meant that the projectile
+            being fired would spawn in a random direction when fired.
+            Making the enemies aim at the player was somewhat more complex. Within the enemy's attack method, I first checked whether the player actor was valid, meaning that it existed
+            and the enemy could fire at it so the enemy only spawns projectiles if the player is valid. In order to get the rotation that the projectile being fired should be spawned at
+            I got the location of the player and then used the 'Find Look at Rotation' node to find the direction the projectile needed to be spawned at by finding the rotation from 
+            the enemy's turret to the player's location. This meant that the projectile would be spawned in the direction of the player.
         </p>
         <h3 style="margin-bottom:5px; margin-top:10px">Weapons</h3>
         <p style="font-size:150%;margin-top:15px">
@@ -130,7 +150,7 @@
             to create new projectile classes which were children of the base projectile class we were provided with.
             <br><br>
             I made 5 additional player weapons on top of the base weapon that the player starts with: a faster, 'automatic' type weapon; a blaster weapon, a weapon with bouncing projectiles;
-            a grenade-launcher like weapon with exploding projectiles and a flamethrower. For the weapons that fire projectiles - which is all except for the flamethrower - I gave each
+            a grenade-launcher like weapon with exploding projectiles and a flamethrower. For the weapons that fire projectiles (which is all except for the flamethrower) I gave each
             of them different fire rates and made the projectiles they fired do different amounts of damage based on the way I wanted that weapon to feel when the player was using it.
             For example, the faster weapon has a higher fire rate than the other weapons as I wanted it to have a more 'automatic' feel to it, thus the cooldown time for it is shorter.
             Conversely, the blaster weapon has a lower fire rate and a higher cooldown time in order to try and simulate the feel of it being 'charged' in order to fire a projectile. To
@@ -153,15 +173,21 @@
             can drop that will explode when the player gets within the bounds of its collider. Like the player's exploding projectiles, I added camera shake to these projectiles too 
             to give the effect of an explosion.
         </p>
+        <hr>
         <h2>What I Learned</h2>
         <p>
-            During the process of making this game, I learned many things about Blueprint as this was my first time using it.
+            During the process of making this game, I learned a lot about Blueprint as this was my first time working with it and I also learned quite a lot about how it can be useful
+            especially when prototyping features for a game.
+            <br><br>
+            Additionally, while creating many of the features of this game, I thought more about the player's experience than I had done previously. This is something I will continue
+            to take into consideration more in the future as the player's experience is very important and even if something may be slightly more computationally expensive, it is 
+            sometimes worth implementing for the benefit of the player's experience.
         </p>
         <hr>
         <br><br>
         <!--Pictures and videos-->
         <div style = "text-align: right;margin-left:0px;margin-right:120px;float:right">
-                <iframe width="800" height="480" src="https://www.youtube.com/embed/nlqFv0Bn7ic?si=UmZjGGk-BOzRABuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="800" height="480" src="https://www.youtube.com/embed/nlqFv0Bn7ic?si=rZRmACrFoYLxC-f4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div style="text-align: left;margin-left:120px">
             <img src="images/tank game page/bubble diagram pic.png" alt="bubble diagram" style="width:800px;height:480px">

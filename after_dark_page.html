@@ -52,7 +52,7 @@
             </div>
         </p>
         <!--Switching-->
-        <h3 style="margin-bottom:5px">Switching Mechanic</h3>
+        <h3 style="margin-bottom:5px; margin-top:10px">Switching Mechanic</h3>
         <div style="float:right;text-align:center;margin-right:120px;margin-left:40px;margin-top:15px;margin-bottom:15px;">
             <img src="videos/switching mechanic.gif" alt="Switching Mechanic GIF" width="700" height="400">
         </div>
@@ -60,9 +60,31 @@
             One of the main mechanics of this game is the mechanics that allows the player to switch between light and dark.
             Not only is this mechanic the way that the game fits into the theme of the jam as it means that the contrast between light and dark is a central part of the game
             but it also allows the player to use platforms that they previously couldn't access.
+            <br><br>
+            In order to create the functionality for this mechanic, I first created a new script which would handle the changing of state from light to dark. This script is 
+            currently attached to the tilemap as the main thing that has to change when the state is changed is the tilemap, both in terms of colour and in terms of its actual 
+            layout and while the player's appearance is changed when the switching mechanic is used, this is handled within the player controller script. Within this script I added 
+            a string variable which would store what the current state was ('light' or 'dark') and I also added variables to store the SpriteRenderer for the background of the 
+            level, the InputAction that would be pressed in order to make the state change, a float to be used as a cooldown timer for the switching mechanic and two Tilemaps 
+            and their colliders - one for when the state is 'light' and the other for when the state is 'dark'. Upon initialisation, within the built-in Start and Awake functions, 
+            the SpriteRenderer variable and two tilemap colliders are all set to the correct components of the respective objects that they are attached to, the InputAction 
+            variable is set to the action in the input system with the name 'Switch' and the state is set to 'light'.
+            <br><br>
+            Then, I started creating the actual functionality that would allow the player to switch from light to dark by first making it so that when the correct key is pressed,
+            it checks the value of the cooldown timer to see if the player is able to switch and then sets the variable storing the current state to be the opposite to what it
+            currently is (i.e. if the state is currently 'light' it is set to 'dark' and vice versa). This switches the state when the player presses the key bound to the input action
+            'Switch' but it doesn't change anything about the rest of the level itself. In order to do this, a check is made to see what the current state of the level is and then,
+            based upon this, the colour of the background is set to either black or white (black if the state is 'dark', white if the state is 'light') and the correct tilemap as 
+            well as its collider is enabled while the other tilemap and its collider are disabled.
+            <br><br>
+            This makes sure that when the theme is switched from light to dark or vice versa, the colours of the level will invert and different platforms will become visible but I 
+            also needed to add some functionality to the player in order to make sure that the player's appearance would change when the state did. I did this by checking what the 
+            current state was from within the player controller script and then setting the colour of the player's sprite renderer based on this (if the current state is light, the 
+            player's sprite renderer is set to black whereas if the current state is white, the player's sprite renderer is set to white). This makes sure that the player can still be
+            seen when the colour of the background changes.
         </p>
         <!--Movement-->
-        <h3 style="margin-bottom:5px">Movement</h3>
+        <h3 style="margin-bottom:5px; margin-top:10px">Movement</h3>
         <p style="margin-top:15px;font-size:160%">
             Another important feature of the game is the player's movement. This was my first time making a 2D platformer game so initially it was
             somewhat difficult for me to figure out how to implement some aspects of the player's movement. Making the player move from left
@@ -76,6 +98,10 @@
             including the sides of them. I managed to solve this issue by adding an additional collider to the bottom edge of the player which would
             only interact with the floor and not the sides of the platforms and then making sure the player was only considered to be on the ground
             when this collider was interacting with a platform.
+        </p>
+        <h2>What I Learned</h2>
+        <p style="font-size:160%">
+
         </p>
     </body>
 </html>

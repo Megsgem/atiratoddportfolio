@@ -31,6 +31,14 @@
                 Team Size: 1
                 <br><br>
                 Language/Engine Used: C#, Unity
+                <br><br>
+                Main Contributions:
+                <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                    - Jumping Mechanic<br>
+                    - Switching Mechanic<br>
+                    - Player Movement<br>
+                    - Level management system
+                </div>
             </p>
         </div>
         <p>
@@ -56,7 +64,7 @@
         <div style="float:right;text-align:center;margin-right:120px;margin-left:40px;margin-top:15px;margin-bottom:15px;">
             <img src="videos/switching mechanic.gif" alt="Switching Mechanic GIF" width="700" height="400">
         </div>
-        <p style="margin-top:15px;font-size:160%">
+        <p style="margin-top:15px; font-size:150%">
             One of the main mechanics of this game is the mechanics that allows the player to switch between light and dark.
             Not only is this mechanic the way that the game fits into the theme of the jam as it means that the contrast between light and dark is a central part of the game
             but it also allows the player to use platforms that they previously couldn't access.
@@ -84,14 +92,55 @@
             seen when the colour of the background changes.
         </p>
         <!--Movement-->
-        <h3 style="margin-bottom:5px; margin-top:10px">Movement</h3>
-        <p style="margin-top:15px;font-size:160%">
-            Another important feature of the game is the player's movement. This was my first time making a 2D platformer game so initially it was
-            somewhat difficult for me to figure out how to implement some aspects of the player's movement. Making the player move from left
-            to right was fairly simple as this was something I had done in other games but the main thing I experienced trouble with was the jumping mechanic.
-            <br>...<br>
-            The code I used to handle jumping went through many iterations as I had some issues with making it work correctly.
-            <br>...<br>
+        <h3 style="margin-bottom:5px; margin-top:10px">Jumping</h3>
+        <p style="margin-top:15px; font-size:150%">
+            Another important feature of the game is the player's movement. This was my first time making a 2D platformer game so initially it was somewhat difficult for me to 
+            figure out how to implement some aspects of the player's movement. Making the player move from left to right was fairly simple as this was something I had done in 
+            other games but the main thing I experienced trouble with was the jumping mechanic.
+            <br><br>
+            The code I used to handle jumping went through many iterations as I had some issues with making it work correctly. While I knew how to make the player move upwards, I 
+            didn't know how to make the player come back down again if the player kept the key used to make the player jump (the space bar) held down and I also needed to make
+            sure that the player could only jump if they were currently on the ground. This second issue was much easier to solve than the first as I just created a boolean variable
+            which stored whether the player was currently on the ground or not which was set to true when the player was on a platform and set to false once the player was no longer
+            on a platform. This boolean variable is checked each time the player presses the space bar and if it is true, then the player is able to jump and if it isn't, then the 
+            player can't jump.
+            <br><br>
+            However, the first issue was something that caused some issues when I tried solving it. Initially, I tried solving this issue by using a float variable to store how
+            long the player was off the ground for and to limit this time, thus meaning that the duration of the player's jump was limitted and therefore how high or how for the
+            player could go in one jump was limitted too. This variable is reset to 0 when the player is on the ground. I also added another Vector2 variable, seperate to the 
+            one used to store the player's movement direction, which I used to store the player's jump direction. When the player pressed the space bar to jump, as well as the 
+            check to see if the player is on the ground, a check is made to see if the player's jump time is equal to or has exceeded the maximum jump time and the player is 
+            only able to jump if it hasn't. The variable storing how long the player's has currently been jumping for is also incremented every frame the player has the space bar 
+            held down until the player touches the ground again. Then, within the fixed update function, the player's linear velocity is calculated using their direction, jump 
+            direction, speed and the delta time. While this did mean that the player could no longer continue moving upwards when the space bar was held down and that they couldn't
+            jump unless they were on the ground, there were still some issues. For example, one issue was that if the player had either the left or right arrow key held down during 
+            their jump, they would keep moving through the air in that direction without falling back down to the ground, which is something that I didn't want to happen.
+            <br><br>
+            With the next iteration of the code I made to fix the problems I was having with making the player jump, I extended the length of time that the player could be jumping for 
+            and I also added another float variable so that I could make sure that the player was only allowed to move left or right through the air for part of the jump but not 
+            the full jump duration. Like the variable that tracks the player's jump time, this variable is also incremented every frame as long as it is less than the time the 
+            player is allowed to move through the air during their jump. Once it is more than or equal to this time, the player's jump direction is set to down rather than zero 
+            which is what is was set to previously when the player let go of the space bar. This meant that even if the player was still holding the left or right arrow keys, 
+            the player would start travelling downwards and therefore they wouldn't keep travelling through the air. This did fix the issue that I had been having and the jumping
+            mechanic was largely fixed but I still felt like it could be a bit better.
+            <br><br>
+            The next iteration of the jumping mechanic is also the one that I am still currently using and right now I don't feel like I will make any changes to it as I am happy with 
+            both the way the mechanic feels in the level and the way the code is currently structured. Before changing the way the code itself works, I added seperate colliders
+            to the player with one dedicated to checking if the bottom edge of the player was colliding with the ground. I moved the code that set the boolean variable which 
+            stored whether the player was on the ground to the script I made for this collider. In order to do this, I added a public setter function in the player's movement 
+            controller script so that this boolean variable could be set in other scripts. Also in the player's movement controller script, I changed the way that the height of
+            the player's jump is controlled. Firstly, I got rid of the variable storing the player's jump direction and instead of this being changed when the player pressed the 
+            space bar to jump, the player's linear velocity was changed instead with the x-component of the linear velocity staying the same as what it was before and the y-component
+            being changed to a set value. This would mean that an upward force of this magnitude was applied to the player and therefore this would control how high the player jumped
+            and how long the player's jump lasted for. This also meant that I had to change the code in the FixedUpdate function which had been handling calculating the player's 
+            linear velocity so that only the x -component of the player's linear velocity would be changed in this function. I also changed how the player's direction was changed 
+            when the player moved left or right so that only the x-component of the player's direction vector was changed when the left or right arrow keys were pressed whereas 
+            before both the x and y components were being set (although the y-component was just being set to 0). This meant that the jump mechanic now worked exactly how I wanted
+            it to with the player only being able to jump to a certain height and with them being able to move left and right through the air before falling back to the ground again.
+        </p>
+        <!--Preventing Wall Climbing-->
+        <h3 style="margin-bottom:5px; margin-top:10px">Walls</h3>
+        <p style="margin-top:15px; font-size:150%">
             Another issue I had with player movement was the fact that the player was able to climb walls which is something that I didn't 
             want them to be able to do as it removed many challenges in the game. I was able to quickly figure out that this issue was because
             the boolean I used to check whether the player was on the ground was true whenever the player collided with any part of a platform,

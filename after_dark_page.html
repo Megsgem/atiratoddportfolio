@@ -92,7 +92,7 @@
             seen when the colour of the background changes.
         </p>
         <!--Movement-->
-        <h3 style="margin-bottom:5px; margin-top:10px">Jumping</h3>
+        <h3 style="margin-bottom:5px; margin-top:10px">Jumping and Movement</h3>
         <p style="margin-top:15px; font-size:150%">
             Another important feature of the game is the player's movement. This was my first time making a 2D platformer game so initially it was somewhat difficult for me to 
             figure out how to implement some aspects of the player's movement. Making the player move from left to right was fairly simple as this was something I had done in 
@@ -137,16 +137,13 @@
             when the player moved left or right so that only the x-component of the player's direction vector was changed when the left or right arrow keys were pressed whereas 
             before both the x and y components were being set (although the y-component was just being set to 0). This meant that the jump mechanic now worked exactly how I wanted
             it to with the player only being able to jump to a certain height and with them being able to move left and right through the air before falling back to the ground again.
-        </p>
-        <!--Preventing Wall Climbing-->
-        <h3 style="margin-bottom:5px; margin-top:10px">Walls</h3>
-        <p style="margin-top:15px; font-size:150%">
-            Another issue I had with player movement was the fact that the player was able to climb walls which is something that I didn't 
-            want them to be able to do as it removed many challenges in the game. I was able to quickly figure out that this issue was because
-            the boolean I used to check whether the player was on the ground was true whenever the player collided with any part of a platform,
-            including the sides of them. I managed to solve this issue by adding an additional collider to the bottom edge of the player which would
-            only interact with the floor and not the sides of the platforms and then making sure the player was only considered to be on the ground
-            when this collider was interacting with a platform.
+            <br><br>
+            Another issue I had with player movement was the fact that the player was able to climb walls which is something that I didn't want them to be able to do as it 
+            removed many challenges in the game. I was able to quickly figure out that this issue was because the boolean I used to check whether the player was on the ground 
+            was true whenever the player collided with any part of a platform, including the sides of them, which I was using as walls. 
+            I managed to solve this issue by adding an additional collider to the bottom edge of the player which would only interact with the floor and not the sides of the 
+            platforms and then making sure the player was only considered to be on the ground when this collider was interacting with a platform. This meant that the player 
+            couldn't move upwards unless they were touching the ground.
         </p>
         <h2>What I Learned</h2>
         <p style="font-size:160%">

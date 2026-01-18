@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <h1>Space Fight</h1>
+        <h1>Graphics Engine</h1>
         <div style = "text-align: center;">
             <p style="font-size: 100%;">
                 <a href = "index.html" style = "text-align: center;">Home</a>
@@ -35,29 +35,45 @@
                 <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
                     - Camera System<br>
                     - Alpha Clipping and Transparency<br>
+                    - Writing Shaders<br>
+
                 </div>
             </p>
         </div>
         <p>
             This is a project I created as part of the Real Time Rendering Framework module in my second year of university. Over the course of this module I was given a framework and
-            was tasked with creating a scene which would showcase a variety of techniques and skills that would be used when building a graphics engine (renderer??) such as 
-            implementing lighting, cameras, transparency and writing shaders using HLSL.
+            was tasked with creating a scene which would showcase a variety of techniques and skills that would be used when building a graphics engine such as implementing 
+            lighting, cameras, transparency and writing shaders using HLSL.
         </p>
         <hr>
         <!--Cameras-->
         <h3 style="margin-bottom:5px; margin-top:30px">Camera System</h3>
         <p style="margin-top:15px; font-size:150%">
             As part of this module, I made different types of cameras that could be used to view the scene as cameras are a vital part of all games and are needed for the player
-            to be able to view the world around them. For this project, I wanted there to be multiple cameras that the player could use to view the scene from different angles,
-            with some of the cameras being stationary and others being able to move.
-            
+            to be able to view the world around them. For this project, I wanted there to be multiple cameras that the player could switch between to view the scene from 
+            different angles, with some of the cameras being stationary and others being able to move.      
             <br><br>
             The first type of camera I created was a base stationary camera class. This camera class would be the class that any other camera classes I created would be built off of.
-            This type of camera wouldn't be able to move and would view the scene from one point in the world. This camera contains 
-
+            This type of camera wouldn't be able to move and would view the scene from one point in the world. This camera contains variabless for the camera's up, at and eye 
+            vectors which could be inherited by any child classes of this base camera class and would be used to create the camera's view matrix. It also contains variables for 
+            the viewport's width and height as well as the distances of the near and far planes which would also be inherited by any child classes and which would be used to create
+            the camera's projection matrix. As well as these variables, this class also has public functions which can be used to get and set the class's variables and functions to
+            create the camera's view and projection matrices. These view and projection matrices will make sure the objects in the world are relative to the camera and that the 
+            objects being rendered are within the view frustrum. The function that creates the view matrix for this camera class uses the DirectX function LookAt to create the
+            camera's view matrix which will aim the camera at a point in the 3D world space of the scene. This base camera class sets up the basic functions for a camera which 
+            can be used by any other camera classes that may be created.
+            <br><br>
+            I used two of these stationary cameras within my project which would view the objects in the scene from two different points in the world.
             <br><br>
             Next, I decided to make another camera class which inherited some functionality from the stationary camera class. This kind of camera would be able to move in six 
-            degrees of freedom and would thus be able to move and rotate around the scene to be able to view it from different angles based on input from the user.
+            degrees of freedom and would thus be able to move and rotate around the scene to be able to view it from different angles based on input from the user. Unlike the base
+            camera class, this moving camera class would use the DirectX function LookTo to create the camera's view matrix rather than LookAt which the stationary camera uses. 
+            Because of this, the moving camera class contains a vector for the camera's eye direction rather than the camera's at vector as LookTo makes the camera look in a 
+            certain direction (e.g. forward) rather than at a set point in the world. Additionally, this camera class has an update function which handles the functionality for 
+            allowing the camera to rotate and move by manipulating the different parts of the camera's transformation matrix (the inverse of the camera's view matrix) based on the 
+            input from the user and then re-calculating the camera's view matrix. This allows this camera to move and rotate in six degrees of freedom.
+            <br><br>
+            I used one of these moving cameras within my project which the player can control and move around the scene in order to view it from various different angles.
         </p>
         <h2>What I Learned</h2>
         <p style="font-size:160%;margin-bottom:55px">

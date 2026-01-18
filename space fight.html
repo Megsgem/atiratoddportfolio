@@ -33,19 +33,45 @@
                 <br><br>
                 Main Contributions:
                 <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                    - Client-Server Model for Data Transmission<br>
                     - Data Replication Across the Network <br>
                     - Basic Lobby System<br>
+                    - Packet Encryption and Security<br>
+                    - Score System<br>
+                    - TCP and UDP 
                 </div>
             </p>
         </div>
         <p>
-            I made this game as part of the Multiplayer Games Module in my second year of university. 
+            This is a game that I made as part of the Multiplayer Games Module that I took in my second year of university. Over the course of creating this game, I worked with
+            multithreading to create a networked game and used a server-client model to allow multiple players play the game with each other. I was given a framework as part of
+            this module which contained a basic game scene as well as the things within this scene such as game objects but I built upon this framework to create my own game and 
+            created the functionality for the server, clients and data transmission which allowed the game to be played across a network by multiple users at once.
+            <br><br>
+            The game is inspired by games such as Space Invaders and is a relatively simple 2D shooter game set in space where the players must destroy all the enemy ships before
+            they themselves are defeated. As well as this, if the players defeat the enemies and win, the players are presented with a leaderboard showing which of them achieved
+            the highest score.
         </p>
         <hr>
         <!--Data Replication-->
         <h3 style="margin-bottom:5px; margin-top:30px">Data Replication</h3>
         <p style="margin-top:15px; font-size:150%">
-
+            Data replication is ... and is very important for multiplayer games as it is essential for the experience of the players that they all see and experience the same
+            world state. While creating this game, there were many pieces of data that I needed to replicate across the clients connected to the server and during the process of
+            implementing ways to do this, I encountered various different problems when replicating the different pieces of data which I had to solve.
+            <br><br>
+            <!--Ships-->
+            <br><br>
+            <!--Bullets-->
+            <br><br>
+            <!--Clients connected-->
+            As part of the lobby system I decided to implement as part of my project, I wanted each client to know how many clients were currently connected to the server so that
+            they were able to know if the lobby was full or had enough players to be able to start the game. Because of this, I needed each client to know the number of players
+            currently connected to the server so it could be accurately displayed to each player and therefore this data needed to be updated and replicated across clients.
+            <br><br>
+            <!--Scores-->
+            Due to the fact that I wanted to create a score system and leaderboard as part of my project, I needed to replicate each player's score across the network so that 
+            each client in the network would be able to display the scores on the leaderboard if the players win the game.
         </p>
         <h2>What I Learned</h2>
         <p style="font-size:160%;margin-bottom:55px">

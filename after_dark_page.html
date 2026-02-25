@@ -22,145 +22,168 @@
                 <a href = "game_jams.html" style = "text-align: center;">Game Jam Submissions</a>
             </p>
         </div>
-        <hr>
-        <h2>About the Game</h2>
-        <div style = "margin-bottom:20px;margin-left:120px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
-            <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
-                Time Frame: 36 hours
-                <br><br>
-                Team Size: 1
-                <br><br>
-                Language/Engine Used: C#, Unity
-                <br><br>
-                Main Contributions:
-                <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
-                    - Jumping Mechanic<br>
-                    - Switching Mechanic<br>
-                    - Player Movement<br>
-                    - Level Management System
+
+        <section class = "card">
+            <div>
+                <h2>About the Game</h2>
+                <div style = "margin-bottom:20px;margin-left:50px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
+                    <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                        Time Frame: 36 hours
+                        <br><br>
+                        Team Size: 1
+                        <br><br>
+                        Language/Engine Used: C#, Unity
+                        <br><br>
+                        Main Contributions:
+                        <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                            - Jumping Mechanic<br>
+                            - Switching Mechanic<br>
+                            - Player Movement<br>
+                            - Level Management System
+                        </div>
+                    </p>
                 </div>
-            </p>
-        </div>
-        <p>
-            This is the game I made for the UKIE Student Game Jam 2025 where the theme of the jam was 'Contrast'.
-            The duration of the jam was 36 hours during which I used C# and Unity to program all of the mechanics 
-            for the game including the 'switching' mechanic which is central to the gameplay.
-            Since the end of the jam, I have done further work on this game fixing some bugs which remained in the game by the end of 
-            the jam and adding some new things which I wasn't able to add during the jam time.
-            <br><br>
-            The game is a relatively simple platformer where you have to traverse through each level in order to find the exit and 
-            move on to the next.
-            However, in order to do so, the player must use their ability to switch between light and dark as some things only exist in the dark
-            and others only exist in the light.
-            <br><br>
-            <div style="margin-left:1000px">
-                <a href = "https://megsgem.itch.io/after-dark">
-                    <img src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
-                </a>
+                <p style = "margin-right: 50px">
+                    This is the game I made for the UKIE Student Game Jam 2025 where the theme of the jam was 'Contrast'.
+                    The duration of the jam was 36 hours during which I used C# and Unity to program all of the mechanics 
+                    for the game including the 'switching' mechanic which is central to the gameplay.
+                    Since the end of the jam, I have done further work on this game fixing some bugs which remained in the game by the end of 
+                    the jam and adding some new things which I wasn't able to add during the jam time.
+                    <br><br>
+                    The game is a relatively simple platformer where you have to traverse through each level in order to find the exit and 
+                    move on to the next.
+                    However, in order to do so, the player must use their ability to switch between light and dark as some things only exist in the dark
+                    and others only exist in the light.
+                    <br><br>
+                    <div style="align-items: center; margin-left: 50px; text-align: center;">
+                        <a href = "https://megsgem.itch.io/after-dark">
+                            <img src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
+                        </a>
+                    </div>
+                </p>
             </div>
-        </p>
-        <hr>
-        <!--Switching-->
-        <h3 style="margin-bottom:5px; margin-top:30px">Switching Mechanic</h3>
-        <div style="float:right;text-align:center;margin-right:120px;margin-left:40px;margin-top:15px;margin-bottom:15px;">
-            <img src="videos/switching mechanic.gif" alt="Switching Mechanic GIF" width="700" height="400">
-        </div>
-        <p style="margin-top:15px; font-size:150%">
-            One of the main mechanics of this game is the mechanics that allows the player to switch between light and dark.
-            Not only is this mechanic the way that the game fits into the theme of the jam as it means that the contrast between light and dark is a central part of the game
-            but it also allows the player to use platforms that they previously couldn't access.
-            <br><br>
-            In order to create the functionality for this mechanic, I first created a new script which would handle the changing of state from light to dark. This script is 
-            currently attached to the tilemap as the main thing that has to change when the state is changed is the tilemap, both in terms of colour and in terms of its actual 
-            layout and while the player's appearance is changed when the switching mechanic is used, this is handled within the player controller script. Within this script I added 
-            a string variable which would store what the current state was ('light' or 'dark') and I also added variables to store the SpriteRenderer for the background of the 
-            level, the InputAction that would be pressed in order to make the state change, a float to be used as a cooldown timer for the switching mechanic and two Tilemaps 
-            and their colliders - one for when the state is 'light' and the other for when the state is 'dark'. Upon initialisation, within the built-in Start and Awake functions, 
-            the SpriteRenderer variable and two tilemap colliders are all set to the correct components of the respective objects that they are attached to, the InputAction 
-            variable is set to the action in the input system with the name 'Switch' and the state is set to 'light'.
-            <br><br>
-            Then, I started creating the actual functionality that would allow the player to switch from light to dark by first making it so that when the correct key is pressed,
-            it checks the value of the cooldown timer to see if the player is able to switch and then sets the variable storing the current state to be the opposite to what it
-            currently is (i.e. if the state is currently 'light' it is set to 'dark' and vice versa). This switches the state when the player presses the key bound to the input action
-            'Switch' but it doesn't change anything about the rest of the level itself. In order to do this, a check is made to see what the current state of the level is and then,
-            based upon this, the colour of the background is set to either black or white (black if the state is 'dark', white if the state is 'light') and the correct tilemap as 
-            well as its collider is enabled while the other tilemap and its collider are disabled.
-            <br><br>
-            This makes sure that when the theme is switched from light to dark or vice versa, the colours of the level will invert and different platforms will become visible but I 
-            also needed to add some functionality to the player in order to make sure that the player's appearance would change when the state did. I did this by checking what the 
-            current state was from within the player controller script and then setting the colour of the player's sprite renderer based on this (if the current state is light, the 
-            player's sprite renderer is set to black whereas if the current state is white, the player's sprite renderer is set to white). This makes sure that the player can still be
-            seen when the colour of the background changes.
-        </p>
-        <!--Movement-->
-        <h3 style="margin-bottom:5px; margin-top:10px">Jumping and Movement</h3>
-        <div style="float:right;text-align:center;margin-right:120px;margin-left:50px;margin-top:15px;margin-bottom:15px;">
-            <img src="videos/jumping.gif" alt="Fishing Mechanic GIF" width="600" height="400">
-        </div>
-        <p style="margin-top:15px; font-size:150%;margin-bottom:35px">
-            Another important feature of the game is the player's movement. This was my first time making a 2D platformer game so initially it was somewhat difficult for me to 
-            figure out how to implement some aspects of the player's movement. Making the player move from left to right was fairly simple as this was something I had done in 
-            other games but the main thing I experienced trouble with was the jumping mechanic.
-            <br><br>
-            The code I used to handle jumping went through many iterations as I had some issues with making it work correctly. While I knew how to make the player move upwards, I 
-            didn't know how to make the player come back down again if the player kept the key used to make the player jump (the space bar) held down and I also needed to make
-            sure that the player could only jump if they were currently on the ground. This second issue was much easier to solve than the first as I just created a boolean variable
-            which stored whether the player was currently on the ground or not which was set to true when the player was on a platform and set to false once the player was no longer
-            on a platform. This boolean variable is checked each time the player presses the space bar and if it is true, then the player is able to jump and if it isn't, then the 
-            player can't jump.
-            <br><br>
-            However, the first issue was something that caused some issues when I tried solving it. Initially, I tried solving this issue by using a float variable to store how
-            long the player was off the ground for and to limit this time, thus meaning that the duration of the player's jump was limitted and therefore how high or how for the
-            player could go in one jump was limitted too. This variable is reset to 0 when the player is on the ground. I also added another Vector2 variable, seperate to the 
-            one used to store the player's movement direction, which I used to store the player's jump direction. When the player pressed the space bar to jump, as well as the 
-            check to see if the player is on the ground, a check is made to see if the player's jump time is equal to or has exceeded the maximum jump time and the player is 
-            only able to jump if it hasn't. The variable storing how long the player's has currently been jumping for is also incremented every frame the player has the space bar 
-            held down until the player touches the ground again. Then, within the fixed update function, the player's linear velocity is calculated using their direction, jump 
-            direction, speed and the delta time. While this did mean that the player could no longer continue moving upwards when the space bar was held down and that they couldn't
-            jump unless they were on the ground, there were still some issues. For example, one issue was that if the player had either the left or right arrow key held down during 
-            their jump, they would keep moving through the air in that direction without falling back down to the ground, which is something that I didn't want to happen.
-            <br><br>
-            With the next iteration of the code I made to fix the problems I was having with making the player jump, I extended the length of time that the player could be jumping for 
-            and I also added another float variable so that I could make sure that the player was only allowed to move left or right through the air for part of the jump but not 
-            the full jump duration. Like the variable that tracks the player's jump time, this variable is also incremented every frame as long as it is less than the time the 
-            player is allowed to move through the air during their jump. Once it is more than or equal to this time, the player's jump direction is set to down rather than zero 
-            which is what is was set to previously when the player let go of the space bar. This meant that even if the player was still holding the left or right arrow keys, 
-            the player would start travelling downwards and therefore they wouldn't keep travelling through the air. This did fix the issue that I had been having and the jumping
-            mechanic was largely fixed but I still felt like it could be a bit better.
-            <br><br>
-            The next iteration of the jumping mechanic is also the one that I am still currently using and right now I don't feel like I will make any changes to it as I am happy with 
-            both the way the mechanic feels in the level and the way the code is currently structured. Before changing the way the code itself works, I added seperate colliders
-            to the player with one dedicated to checking if the bottom edge of the player was colliding with the ground. I moved the code that set the boolean variable which 
-            stored whether the player was on the ground to the script I made for this collider. In order to do this, I added a public setter function in the player's movement 
-            controller script so that this boolean variable could be set in other scripts. Also in the player's movement controller script, I changed the way that the height of
-            the player's jump is controlled. Firstly, I got rid of the variable storing the player's jump direction and instead of this being changed when the player pressed the 
-            space bar to jump, the player's linear velocity was changed instead with the x-component of the linear velocity staying the same as what it was before and the y-component
-            being changed to a set value. This would mean that an upward force of this magnitude was applied to the player and therefore this would control how high the player jumped
-            and how long the player's jump lasted for. This also meant that I had to change the code in the FixedUpdate function which had been handling calculating the player's 
-            linear velocity so that only the x -component of the player's linear velocity would be changed in this function. I also changed how the player's direction was changed 
-            when the player moved left or right so that only the x-component of the player's direction vector was changed when the left or right arrow keys were pressed whereas 
-            before both the x and y components were being set (although the y-component was just being set to 0). This meant that the jump mechanic now worked exactly how I wanted
-            it to with the player only being able to jump to a certain height and with them being able to move left and right through the air before falling back to the ground again.
-            <br><br>
-            Another issue I had with player movement was the fact that the player was able to climb walls which is something that I didn't want them to be able to do as it 
-            removed many challenges in the game. I was able to quickly figure out that this issue was because the boolean I used to check whether the player was on the ground 
-            was true whenever the player collided with any part of a platform, including the sides of them, which I was using as walls. 
-            I managed to solve this issue by adding an additional collider to the bottom edge of the player which would only interact with the floor and not the sides of the 
-            platforms and then making sure the player was only considered to be on the ground when this collider was interacting with a platform. This meant that the player 
-            couldn't move upwards unless they were touching the ground.
-        </p>
-        <hr>
-        <h2>What I Learned</h2>
-        <p style="font-size:160%;margin-bottom:55px">
-            One of the main things I learned from making this game and taking part in this game jam was problem solving quickly and managing priorites when working to a short 
-            deadline. Since the jam was only 36 hours long, I had to find and fix problems in a very short space of time, meaning that certain features and mechanics had to be 
-            prioritised over others. For example, I knew that the both the switching mechanics and the jumping mechanics were going to be central mechanics of the game (the first
-            because this was the way the game fit with the theme of the jam and the second as this would be very important for the movement of the player in a platformer game) 
-            and therefore I prioritised making sure these features worked in a way I was reasonably happy with over implementing more features (e.g. enemies) or levels.
-            <br><br>
-            I also learned a lot about implementing player movement for a 2D platformer game as this was the first time I had created a game of this kind. I specifically learned 
-            how to implement a jumping mechanic well as well as how to manage the player's interaction with walls and I have continued to use what I learned about implementing 
-            these things in games I have created since making this one.
-        </p>
+        </section>
+        
+        <section class = "card">
+            <div>
+                <!--Switching-->
+                <article class = "panel">
+                    <div>
+                        <h3 style="margin-bottom:5px; margin-top:30px">Switching Mechanic</h3>
+                        <div style="float:right;text-align:center;margin-left:40px;margin-top:15px;margin-bottom:15px; margin-right:80px">
+                            <img src="videos/switching mechanic.gif" alt="Switching Mechanic GIF" width="700" height="400">
+                        </div>
+                        <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px">
+                            One of the main mechanics of this game is the mechanics that allows the player to switch between light and dark.
+                            Not only is this mechanic the way that the game fits into the theme of the jam as it means that the contrast between light and dark is a central part of the game
+                            but it also allows the player to use platforms that they previously couldn't access.
+                            <br><br>
+                            In order to create the functionality for this mechanic, I first created a new script which would handle the changing of state from light to dark. This script is 
+                            currently attached to the tilemap as the main thing that has to change when the state is changed is the tilemap, both in terms of colour and in terms of its actual 
+                            layout and while the player's appearance is changed when the switching mechanic is used, this is handled within the player controller script. Within this script I added 
+                            a string variable which would store what the current state was ('light' or 'dark') and I also added variables to store the SpriteRenderer for the background of the 
+                            level, the InputAction that would be pressed in order to make the state change, a float to be used as a cooldown timer for the switching mechanic and two Tilemaps 
+                            and their colliders - one for when the state is 'light' and the other for when the state is 'dark'. Upon initialisation, within the built-in Start and Awake functions, 
+                            the SpriteRenderer variable and two tilemap colliders are all set to the correct components of the respective objects that they are attached to, the InputAction 
+                            variable is set to the action in the input system with the name 'Switch' and the state is set to 'light'.
+                            <br><br>
+                            Then, I started creating the actual functionality that would allow the player to switch from light to dark by first making it so that when the correct key is pressed,
+                            it checks the value of the cooldown timer to see if the player is able to switch and then sets the variable storing the current state to be the opposite to what it
+                            currently is (i.e. if the state is currently 'light' it is set to 'dark' and vice versa). This switches the state when the player presses the key bound to the input action
+                            'Switch' but it doesn't change anything about the rest of the level itself. In order to do this, a check is made to see what the current state of the level is and then,
+                            based upon this, the colour of the background is set to either black or white (black if the state is 'dark', white if the state is 'light') and the correct tilemap as 
+                            well as its collider is enabled while the other tilemap and its collider are disabled.
+                            <br><br>
+                            This makes sure that when the theme is switched from light to dark or vice versa, the colours of the level will invert and different platforms will become visible but I 
+                            also needed to add some functionality to the player in order to make sure that the player's appearance would change when the state did. I did this by checking what the 
+                            current state was from within the player controller script and then setting the colour of the player's sprite renderer based on this (if the current state is light, the 
+                            player's sprite renderer is set to black whereas if the current state is white, the player's sprite renderer is set to white). This makes sure that the player can still be
+                            seen when the colour of the background changes.
+                        </p>
+                    </div>
+                </article>
+                
+                <!--Movement-->
+                <article class = "panel">
+                    <div>
+                        <h3 style="margin-bottom:5px; margin-top:30px">Jumping and Movement</h3>
+                        <div style="float:right;text-align:center;margin-right:80px;margin-left:50px;margin-top:15px;margin-bottom:15px;">
+                            <img src="videos/jumping.gif" alt="Fishing Mechanic GIF" width="600" height="400">
+                        </div>
+                        <p style="margin-top:15px; font-size:150%;margin-bottom:35px; margin-right:80px; margin-left:80px">
+                            Another important feature of the game is the player's movement. This was my first time making a 2D platformer game so initially it was somewhat difficult for me to 
+                            figure out how to implement some aspects of the player's movement. Making the player move from left to right was fairly simple as this was something I had done in 
+                            other games but the main thing I experienced trouble with was the jumping mechanic.
+                            <br><br>
+                            The code I used to handle jumping went through many iterations as I had some issues with making it work correctly. While I knew how to make the player move upwards, I 
+                            didn't know how to make the player come back down again if the player kept the key used to make the player jump (the space bar) held down and I also needed to make
+                            sure that the player could only jump if they were currently on the ground. This second issue was much easier to solve than the first as I just created a boolean variable
+                            which stored whether the player was currently on the ground or not which was set to true when the player was on a platform and set to false once the player was no longer
+                            on a platform. This boolean variable is checked each time the player presses the space bar and if it is true, then the player is able to jump and if it isn't, then the 
+                            player can't jump.
+                            <br><br>
+                            However, the first issue was something that caused some issues when I tried solving it. Initially, I tried solving this issue by using a float variable to store how
+                            long the player was off the ground for and to limit this time, thus meaning that the duration of the player's jump was limitted and therefore how high or how for the
+                            player could go in one jump was limitted too. This variable is reset to 0 when the player is on the ground. I also added another Vector2 variable, seperate to the 
+                            one used to store the player's movement direction, which I used to store the player's jump direction. When the player pressed the space bar to jump, as well as the 
+                            check to see if the player is on the ground, a check is made to see if the player's jump time is equal to or has exceeded the maximum jump time and the player is 
+                            only able to jump if it hasn't. The variable storing how long the player's has currently been jumping for is also incremented every frame the player has the space bar 
+                            held down until the player touches the ground again. Then, within the fixed update function, the player's linear velocity is calculated using their direction, jump 
+                            direction, speed and the delta time. While this did mean that the player could no longer continue moving upwards when the space bar was held down and that they couldn't
+                            jump unless they were on the ground, there were still some issues. For example, one issue was that if the player had either the left or right arrow key held down during 
+                            their jump, they would keep moving through the air in that direction without falling back down to the ground, which is something that I didn't want to happen.
+                            <br><br>
+                            With the next iteration of the code I made to fix the problems I was having with making the player jump, I extended the length of time that the player could be jumping for 
+                            and I also added another float variable so that I could make sure that the player was only allowed to move left or right through the air for part of the jump but not 
+                            the full jump duration. Like the variable that tracks the player's jump time, this variable is also incremented every frame as long as it is less than the time the 
+                            player is allowed to move through the air during their jump. Once it is more than or equal to this time, the player's jump direction is set to down rather than zero 
+                            which is what is was set to previously when the player let go of the space bar. This meant that even if the player was still holding the left or right arrow keys, 
+                            the player would start travelling downwards and therefore they wouldn't keep travelling through the air. This did fix the issue that I had been having and the jumping
+                            mechanic was largely fixed but I still felt like it could be a bit better.
+                            <br><br>
+                            The next iteration of the jumping mechanic is also the one that I am still currently using and right now I don't think I will make any changes to it as I am happy with 
+                            both the way the mechanic feels in the level and the way the code is currently structured. Before changing the way the code itself works, I added seperate colliders
+                            to the player with one dedicated to checking if the bottom edge of the player was colliding with the ground. I moved the code that set the boolean variable which 
+                            stored whether the player was on the ground to the script I made for this collider. In order to do this, I added a public setter function in the player's movement 
+                            controller script so that this boolean variable could be set in other scripts. Also in the player's movement controller script, I changed the way that the height of
+                            the player's jump is controlled. Firstly, I got rid of the variable storing the player's jump direction and instead of this being changed when the player pressed the 
+                            space bar to jump, the player's linear velocity was changed instead with the x-component of the linear velocity staying the same as what it was before and the y-component
+                            being changed to a set value. This would mean that an upward force of this magnitude was applied to the player and therefore this would control how high the player jumped
+                            and how long the player's jump lasted for. This also meant that I had to change the code in the FixedUpdate function which had been handling calculating the player's 
+                            linear velocity so that only the x -component of the player's linear velocity would be changed in this function. I also changed how the player's direction was changed 
+                            when the player moved left or right so that only the x-component of the player's direction vector was changed when the left or right arrow keys were pressed whereas 
+                            before both the x and y components were being set (although the y-component was just being set to 0). This meant that the jump mechanic now worked exactly how I wanted
+                            it to with the player only being able to jump to a certain height and with them being able to move left and right through the air before falling back to the ground again.
+                            <br><br>
+                            Another issue I had with player movement was the fact that the player was able to climb walls which is something that I didn't want them to be able to do as it 
+                            removed many challenges in the game. I was able to quickly figure out that this issue was because the boolean I used to check whether the player was on the ground 
+                            was true whenever the player collided with any part of a platform, including the sides of them, which I was using as walls. 
+                            I managed to solve this issue by adding an additional collider to the bottom edge of the player which would only interact with the floor and not the sides of the 
+                            platforms and then making sure the player was only considered to be on the ground when this collider was interacting with a platform. This meant that the player 
+                            couldn't move upwards unless they were touching the ground.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        
+        <section class = "card" style = "margin-bottom: 50px;">
+            <div>
+                <h2>What I Learned</h2>
+                <p style="font-size:160%;margin-bottom:50px; margin-right: 50px; margin-left: 50px;">
+                    One of the main things I learned from making this game and taking part in this game jam was problem solving quickly and managing priorites when working to a short 
+                    deadline. Since the jam was only 36 hours long, I had to find and fix problems in a very short space of time, meaning that certain features and mechanics had to be 
+                    prioritised over others. For example, I knew that the both the switching mechanics and the jumping mechanics were going to be central mechanics of the game (the first
+                    because this was the way the game fit with the theme of the jam and the second as this would be very important for the movement of the player in a platformer game) 
+                    and therefore I prioritised making sure these features worked in a way I was reasonably happy with over implementing more features (e.g. enemies) or levels.
+                    <br><br>
+                    I also learned a lot about implementing player movement for a 2D platformer game as this was the first time I had created a game of this kind. I specifically learned 
+                    how to implement a jumping mechanic well as well as how to manage the player's interaction with walls and I have continued to use what I learned about implementing 
+                    these things in games I have created since making this one.
+                </p>
+            </div>
+        </section>
+        
     </body>
 </html>

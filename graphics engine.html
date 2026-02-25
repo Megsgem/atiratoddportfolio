@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Atira Todd Portfolio - Space Fight</title>
+    <title>Atira Todd Portfolio - Graphics Engine</title>
         <link rel="icon" type="image/x-icon" href="images/gem icon.png">
         <!--Oswald font embed code-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,65 +21,145 @@
                 <a href = "game_jams.html" style = "text-align: center;">Game Jam Submissions</a>
             </p>
         </div>
-        <hr>
-        <h2>About the Project</h2>
-        <div style = "margin-bottom:20px;margin-left:120px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
-            <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
-                Time Frame: 8 weeks
-                <br><br>
-                Team Size: 1
-                <br><br>
-                Languages/Libraries used: C++, DirectX 11, HLSL
-                <br><br>
-                Main Contributions:
-                <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
-                    - Camera System<br>
-                    - Alpha Clipping and Transparency<br>
-                    - Writing Shaders<br>
 
+        <section class = "card">
+            <div>
+                <h2>About the Project</h2>
+                <div style = "margin-bottom:20px;margin-left:50px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
+                    <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                        Time Frame: 8 weeks
+                        <br><br>
+                        Team Size: 1
+                        <br><br>
+                        Languages/Libraries used: C++, DirectX 11, HLSL, JSON
+                        <br><br>
+                        Main Contributions:
+                        <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                            - Camera System<br>
+                            - Alpha Clipping and Transparency<br>
+                            - Writing Shaders<br>
+
+                        </div>
+                    </p>
                 </div>
-            </p>
-        </div>
-        <p>
-            This is a project I created as part of the Real Time Rendering Framework module in my second year of university. Over the course of this module I was given a framework and
-            was tasked with creating a scene which would showcase a variety of techniques and skills that would be used when building a graphics engine such as implementing 
-            lighting, cameras, transparency and writing shaders using HLSL.
-        </p>
-        <hr>
-        <!--Cameras-->
-        <h3 style="margin-bottom:5px; margin-top:30px">Camera System</h3>
-        <p style="margin-top:15px; font-size:150%">
-            As part of this module, I made different types of cameras that could be used to view the scene as cameras are a vital part of all games and are needed for the player
-            to be able to view the world around them. For this project, I wanted there to be multiple cameras that the player could switch between to view the scene from 
-            different angles, with some of the cameras being stationary and others being able to move.      
-            <br><br>
-            The first type of camera I created was a base stationary camera class. This camera class would be the class that any other camera classes I created would be built off of.
-            This type of camera wouldn't be able to move and would view the scene from one point in the world. This camera contains variabless for the camera's up, at and eye 
-            vectors which could be inherited by any child classes of this base camera class and would be used to create the camera's view matrix. It also contains variables for 
-            the viewport's width and height as well as the distances of the near and far planes which would also be inherited by any child classes and which would be used to create
-            the camera's projection matrix. As well as these variables, this class also has public functions which can be used to get and set the class's variables and functions to
-            create the camera's view and projection matrices. These view and projection matrices will make sure the objects in the world are relative to the camera and that the 
-            objects being rendered are within the view frustrum. The function that creates the view matrix for this camera class uses the DirectX function LookAt to create the
-            camera's view matrix which will aim the camera at a point in the 3D world space of the scene. This base camera class sets up the basic functions for a camera which 
-            can be used by any other camera classes that may be created.
-            <br><br>
-            I used two of these stationary cameras within my project which would view the objects in the scene from two different points in the world.
-            <br><br>
-            Next, I decided to make another camera class which inherited some functionality from the stationary camera class. This kind of camera would be able to move in six 
-            degrees of freedom and would thus be able to move and rotate around the scene to be able to view it from different angles based on input from the user. Unlike the base
-            camera class, this moving camera class would use the DirectX function LookTo to create the camera's view matrix rather than LookAt which the stationary camera uses. 
-            Because of this, the moving camera class contains a vector for the camera's eye direction rather than the camera's at vector as LookTo makes the camera look in a 
-            certain direction (e.g. forward) rather than at a set point in the world. Additionally, this camera class has an update function which handles the functionality for 
-            allowing the camera to rotate and move by manipulating the different parts of the camera's transformation matrix (the inverse of the camera's view matrix) based on the 
-            input from the user and then re-calculating the camera's view matrix. This allows this camera to move and rotate in six degrees of freedom.
-            <br><br>
-            I used one of these moving cameras within my project which the player can control and move around the scene in order to view it from various different angles.
-        </p>
-        <h2>What I Learned</h2>
-        <p style="font-size:160%;margin-bottom:55px">
-            While I did have some previous experience with rendering using OpenGL before starting this project, and thus was familiar with some rendering concepts, this was the 
-            first project I had worked on in DirectX11. Over the course of creating this ... I developed my skills in DirectX 11 which I will use in future projects and I also 
-            furthered my knowledge on various graphical and rendering concepts; both ones I had previously encountered such as lighting and ones I hadn't such as skyboxes[possibly
-            think of a different thing to put here]
-        </p>
+                <p style = "margin-right: 50px;margin-top:60px;">
+                    <br>
+                    This is a project I created as part of the Real Time Rendering Framework module in my second year of university. Over the course of this module I was given a framework and
+                    was tasked with creating a scene which would showcase a variety of techniques and skills that would be used when building a graphics engine such as implementing 
+                    lighting, cameras, transparency and writing shaders using HLSL.
+                </p>
+            </div>
+        </section>
+
+        <section class = "card">
+            <div>
+                <!--Cameras-->
+                <article class = "panel">
+                    <div>
+                        <h3 style="margin-bottom:5px; margin-top:30px">Camera System</h3>
+                        <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px">
+                            As part of this module, I made different types of cameras that could be used to view the scene as cameras are a vital part of all games and are needed for the player
+                            to be able to view the world around them. For this project, I wanted there to be multiple cameras that the player could switch between to view the scene from 
+                            different angles, with some of the cameras being stationary and others being able to move.      
+                            <br><br>
+                            The first type of camera I created was a base stationary camera class. This camera class would be the class that any other camera classes I created would be built off of.
+                            This type of camera wouldn't be able to move and would view the scene from one point in the world. This camera contains variabless for the camera's up, at and eye 
+                            vectors which could be inherited by any child classes of this base camera class and would be used to create the camera's view matrix. It also contains variables for 
+                            the viewport's width and height as well as the distances of the near and far planes which would also be inherited by any child classes and which would be used to create
+                            the camera's projection matrix. As well as these variables, this class also has public functions which can be used to get and set the class's variables and functions to
+                            create the camera's view and projection matrices. These view and projection matrices will make sure the objects in the world are relative to the camera and that the 
+                            objects being rendered are within the view frustrum. The function that creates the view matrix for this camera class uses the DirectX function LookAt to create the
+                            camera's view matrix which will aim the camera at a point in the 3D world space of the scene. This base camera class sets up the basic functions for a camera which 
+                            can be used by any other camera classes that may be created.
+                            <br><br>
+                            I used two of these stationary cameras within my project which would view the objects in the scene from two different points in the world.
+                            <br><br>
+                            Next, I decided to make another camera class which inherited some functionality from the stationary camera class. This kind of camera would be able to move in six 
+                            degrees of freedom and would thus be able to move and rotate around the scene to be able to view it from different angles based on input from the user. Unlike the base
+                            camera class, this moving camera class would use the DirectX function LookTo to create the camera's view matrix rather than LookAt which the stationary camera uses. 
+                            Because of this, the moving camera class contains a vector for the camera's eye direction rather than the camera's at vector as LookTo makes the camera look in a 
+                            certain direction (e.g. forward) rather than at a set point in the world. Additionally, this camera class has an update function which handles the functionality for 
+                            allowing the camera to rotate and move by manipulating the different parts of the camera's transformation matrix (the inverse of the camera's view matrix) based on the 
+                            input from the user and then re-calculating the camera's view matrix. This allows this camera to move and rotate in six degrees of freedom.
+                            <br><br>
+                            I used one of these moving cameras within my project which the user can control and move around the scene in order to view it from various different angles.
+                            This is something that is often useful in games engines, such as to view the current scene, and in games, such as moving the camera around the play space when the player
+                            moves.
+                        </p>
+                    </div>          
+                </article>
+                <!--Skybox-->
+                <article class = "panel">
+                    <div>
+                        <h3 style = "margin-bottom:5px;margin-top:30px;">Skybox</h3>
+                        <p style = "margin-top:15px; font-size:150%; margin-right:80px; margin-left:80px">
+                            Something that is used in many games and therefore in many engines is a skybox which surrounds the play space. Because of this, when working on this
+                            project, I wanted to try and implement a skybox which encapsulated the objects within the scene. Doing this would require writing second vertex and
+                            pixel shaders which would be specifically used for handling the skybox and the texture cube used for it.
+                            <br><br>
+                            Before writing any new shaders however, the first thing that I had to do when implementing a skybox in my project was to figure out how to apply the texture to
+                            the inside of the skybox cube. While there are other approaches to doing this such as using DirectX11's CULL_NONE rasterizer state to draw the skybox which 
+                            would ensure that all of the triangles that make up the cube are drawn - as opposed to how backface culling is used to draw the other objects in the scene meaning
+                            that only front facing triangles are drawn - I decided to instead create a new inverted cube object class as I felt that this apporach may fit with my project better.
+                            This inverted cube was similar to the normal cube objects in my scene except the indices for the left, back and bottom faces of this cube needed to
+                            be specified in the opposite order than they would be for the normal cube. This would mean that these face would be drawn anticlockwise and would therefore
+                            be facing inwards and thus when a texture is applied to the inverted cube, it will display on the inside of the cube.
+                            <br><br>
+                            Once I had created this inverted cube object, I then created the vertex and pixel shaders that I would using specifically for the skybox. These were different from
+                            the vertex and the pixel shaders that I had already written which were used for the other objects and lighting in the scene as the skybox doesn't need to use vertex
+                            normals in the vertex shader and it also doesn't have lighting applied to it which is normally done in the pixel shader. These shaders are also used for sampling the
+                            texture cube used for the skybox which is held within this new shader script. As well as this, in this new vertex shader, the skybox's Z-value is 
+                            overwritten with W meaning that its Z-value becomes 1 and therefore the skybox is drawn behind everything else in the scene and looks as though it is
+                            infinitely far away. Because of this, the skybox is also drawn last to optimise how many pixels have to be rewritten. I also needed to make sure that
+                            the depth buffer didn't clip the skybox due to it rendering at a distance of 1 and thus I created a new depth stencil state which could be used for
+                            the skybox which uses the LESS_EQUAL comparison to make sure that if the depth is less than or equal to what is on the buffer, it will still be rendered,
+                            meaninging that the skybox won't get clipped and will render to the screen.
+                            <br><br>
+                            The final thing that needed to be done was to make sure that, when moving, the camera would never intersect with or move through the skybox. I decided to do
+                            this by moving the skybox with the camera and reconstructing its world matrix after every camera movement as this approach meant that there was then no 
+                            chance of the camera intersecting with the skybox.
+                        </p>
+                    </div>
+                </article>
+                <!--Alpha Clipping-->
+                <article class = "panel">
+                    <div>
+                        <h3 style = "margin-bottom:5px;margin-top:30px">Transparency and Alpha Clipping</h3>
+                        <p style = "margin-top:15px; font-size:150%; margin-right:80px;margin-left:80px">
+                            Another thing that is important aspect of rendering and graphics for games is the ability for objects to be fully or partially transparent. This allows
+                            for effects such as fog and can be used to create things such as glass or barred objects. Due to this, I decided to implement alpha clipping and blending
+                            in order to achieve partial and full transparency for objects in my project.
+                            <br><br>
+                            <img src="images/graphics engine/translucent pyramid.png" alt = "translucent pyramid picture" style = "width:180px; height: 180px; float: right; margin-left:2.5%;margin-top:0.6%">
+                            In order to implement alpha blending in my project, I first had to create a new blend state which could handle transparency and which would be used by the 
+                            Output Merger. This blend state uses a blend description which contains an array of 8 D3D11_RENDER_TARGET_BLEND_DESC structures which will define the blending
+                            equation for each render target. For this particular blend state, these structures specify that blending should be enabled for the render target, blending all
+                            of the different RGBA channels using an addition blending operation. This would enable me to make objects partially transparent as the colours of the pixels behind 
+                            the translucent object could be blended with the pixels of the translucent object.
+                            <br><br>
+                            <img src="images/graphics engine/wire cube.png" alt = "wire cube picture" style = "width:180px; height: 180px; float: left; margin-right:2.5%; margin-top:0.6%;">
+                            Once I had successfully implemented alpha blending, I then began implementing alpha clipping in my project which would allow for pixels to be clipped and
+                            therefore not rendered at all. This would allow me to create objects that appeared to have gaps in them such as mesh or wire objects. This clipping of pixels
+                            is done on the pixel shader if the pixel's alpha value is below a certain threshold. For my project, if the pixel's alpha value minus 0.01 is less than or equal
+                            to zero, then the pixel is clipped. I took this approach in order to be able to deal with floating point values that were very close to zero. As well as this,
+                            for objects like the ones in my project where you could see the back faces through the gaps in the front face, the backface culling used when drawing the 
+                            other objects in the scene needed to be disabled so that these back faces will still be rendered. 
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section class = "card" style = "margin-bottom: 50px;">
+            <div>
+                <h2>What I Learned</h2>
+                <p style="font-size:160%;margin-bottom:50px; margin-right: 50px; margin-left: 50px;">
+                    While I did have some previous experience with rendering using OpenGL before starting this project, and thus was familiar with some rendering concepts, this was the 
+                    first project I had worked on in DirectX11. Over the course of creating this graphics engine I developed my skills in DirectX 11 which I will use in future projects and I also 
+                    furthered my knowledge on various graphical and rendering concepts; both ones I had previously encountered such as lighting and ones I hadn't such as skyboxes and writing shaders.
+                    I also gained experience working within a framework and building on pre-existing code, integrating the features I was adding with what had been provided which provided me
+                    with more skills that I will use in many projects going forward.
+                </p>
+            </div>
+        </section>
 </body>

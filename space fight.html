@@ -61,17 +61,25 @@
             implementing ways to do this, I encountered various different problems when replicating the different pieces of data which I had to solve.
             <br><br>
             <!--Ships-->
+            One of the main things that I needed to replicate across the different clients playing the game was data to do with the ships that the players control. Each player 
+            controls one ship but in order to make sure the players experience the same world state, they will also need to see the other ship's actions in real time as the other
+            players control them. 
+
             <br><br>
             <!--Bullets-->
+            In order to defeat the enemy ships, the players are able to fire bullets at them and therefore every player needs to see the bullets that the other players fire.
+
             <br><br>
             <!--Clients connected-->
             As part of the lobby system I decided to implement as part of my project, I wanted each client to know how many clients were currently connected to the server so that
             they were able to know if the lobby was full or had enough players to be able to start the game. Because of this, I needed each client to know the number of players
             currently connected to the server so it could be accurately displayed to each player and therefore this data needed to be updated and replicated across clients.
+
             <br><br>
             <!--Scores-->
             Due to the fact that I wanted to create a score system and leaderboard as part of my project, I needed to replicate each player's score across the network so that 
             each client in the network would be able to display the scores on the leaderboard if the players win the game.
+            
         </p>
         <h2>What I Learned</h2>
         <p style="font-size:160%;margin-bottom:55px">

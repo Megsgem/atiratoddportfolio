@@ -22,74 +22,89 @@
                 <a href = "game_jams.html" style = "text-align: center;">Game Jam Submissions</a>
             </p>
         </div>
-        <hr>
-        <h2>About the Game</h2>
-        <div style = "margin-left:120px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
-            <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
-                Time Frame: 7 days
-                <br><br>
-                Team Size: 1
-                <br><br>
-                Language/Engine Used: C#, Unity
-                <br><br>
-                Main Contributions:
-                <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
-                    - Eye Movement Mechanic<br>
-                    - Player Movement<br>
-                    - Collectibles<br>
-                    - Level Management System
+        <section class = "card">
+            <div>
+                <h2>About the Game</h2>
+                <div style = "margin-left:50px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
+                    <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                        Time Frame: 7 days
+                        <br><br>
+                        Team Size: 1
+                        <br><br>
+                        Language/Engine Used: C#, Unity
+                        <br><br>
+                        Main Contributions:
+                        <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                            - Eye Movement Mechanic<br>
+                            - Player Movement<br>
+                            - Collectibles<br>
+                            - Level Management System
+                        </div>
+                    </p>
                 </div>
-            </p>
-        </div>
-        <p>
-            This is the game I made for the Secret Level Jam, a jam where the game submitted had to have a secret level.
-            The jam's theme was 'Watch Me' so I decided to make a game set in a world where everyone is always being watched. The game is a 2D sidescroller and I programmed 
-            everything currently in the game including the player's movement, the movement of the eyes and the way the levels are managed.
-            <br><br>
-            <div style="margin-right:120px;margin-left:990px">
-                <a href = "https://megsgem.itch.io/i-spy">
-                    <img src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
-                </a>
+                <p style = "margin-right: 50px">
+                    This is the game I made for the Secret Level Jam, a jam where the game submitted had to have a secret level.
+                    The jam's theme was 'Watch Me' so I decided to make a game set in a world where everyone is always being watched. The game is a 2D sidescroller and I programmed 
+                    everything currently in the game including the player's movement, the movement of the eyes and the way the levels are managed.
+                    <br><br>
+                    <div style="margin-right:100px;margin-left:50px; text-align: center;align-items: center;">
+                        <a href = "https://megsgem.itch.io/i-spy">
+                            <img src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
+                        </a>
+                    </div>
+                </p>
             </div>
-        </p>
-        <hr>
-        <!--Eye Movement-->
-        <h3 style="margin-bottom:5px; margin-top:30px">Eye Movement</h3>
-        <div style="float:right;text-align:center;margin-right:120px;margin-left:40px;margin-top:15px;font-size:130%">
-            <img src="videos/eye movement.gif" alt="Eye Movement GIF" width="450" height="400">
-        </div>
-        <p style="margin-top:15px;font-size:150%;margin-bottom: 35px;">
-            One of the features of this game that I focused on while making it was the movement of the eyes in the background. While this doesn't currently affect the gameplay, 
-            it was something I felt would be important for the environment and atmosphere of the game as it would emphasise the feeling of the player being watched.
-            <br><br>
-            In order to achieve this effect, I first created an eye object prefab which I added a box collider component to so that the eye could detect when the player walked 
-            beneath it.  In this prefab, I made sure that the pupil was seperate from the rest of the eye so that it could move on its own and I also made sure to add two more
-            colliders as barriers on the left and right corners of the eye to make sure that the pupil couldn't move too far. I also attached a script to this prefab which would
-            dictate how the pupil would move. Within this script I added a boolean variable for storing whether the player was in the eye's field of vision, a Vector2 variable 
-            storing the pupil's direction and 2 Rigidbody2D variables: one for the pupil's rigidbody and the other for the player's rigidbody.
-            <br><br>
-            I then created the actual functionality for making the pupil follow the player within this script. Using the OnTriggerEnter2D function, I detected when an object entered
-            the eye's box collider and within this function I created a check to see if the object that entered the collider was the player. If it was the player, the boolean 
-            storing whether the player was in sight is set to true and the Rigidbody2D variable used for storing the player's rigidbody is set to the Rigidbody2D component attached
-            to the player object. I also used the OnTriggerExit2D function to detect when the player left the eye's box collider and when this event is called, the boolean variable
-            is set to false.
-            <br><br>
-            Once I had set up this functionality to detect when the player was in the eye's field of vision, I then made the functionality that would actually make
-            the pupil move in the correct direction. When the player is in the eye's field of vision, a check is made to see if the player's linear velocity in the x direction
-            is more than, less than or equal to 0. If the player's linear velocity is more than 0, they are therefore moving right and so the direction the pupil should
-            move in is set to right. If the player's linear velocity is less than 0, they are therefore moving left and so the direction the pupil should move in is set to left.
-            Finally, if the player's linear velocity is 0, then they aren't moving so the direction the pupil should move in is set to the zero vector like it is when the player
-            is out of sight. Then, I used the FixedUpdate method to handle calculating the pupil's linear velocity using the direction it should be moving in so that the pupil can 
-            actually move in the correct direction.
-            <br><br>
-            This method for creating the eye movement works so far for the game and there aren't any major issues with it however, I may change the way it works slightly in the 
-            future as I feel there are ways of doing this that may be a bit better such as possibly using the player's position relative to the pupil's rather than just using the 
-            direction that the player is moving in to calculate the direction that the pupil should move in too.
-        </p>
-        <hr>
-        <h2>What I Learned</h2>
-        <p style="font-size:160%; margin-bottom:55px">
-            While making this game I learned 
-        </p>
+        </section>
+        
+        <section class = "card">
+            <div>
+                <!--Eye Movement-->
+                <article class = "panel">
+                    <div>
+                        <h3 style="margin-bottom:5px; margin-top:30px">Eye Movement</h3>
+                    <div style="float:right;text-align:center;margin-right:80px;margin-left:40px;margin-top:15px;font-size:130%;">
+                        <img src="videos/eye movement.gif" alt="Eye Movement GIF" width="450" height="400">
+                    </div>
+                    <p style="margin-top:15px;font-size:150%;margin-left:80px;margin-right: 80px;">
+                        One of the features of this game that I focused on while making it was the movement of the eyes in the background. While this doesn't currently affect the gameplay, 
+                        it was something I felt would be important for the environment and atmosphere of the game as it would emphasise the feeling of the player being watched.
+                        <br><br>
+                        In order to achieve this effect, I first created an eye object prefab which I added a box collider component to so that the eye could detect when the player walked 
+                        beneath it.  In this prefab, I made sure that the pupil was seperate from the rest of the eye so that it could move on its own and I also made sure to add two more
+                        colliders as barriers on the left and right corners of the eye to make sure that the pupil couldn't move too far. I also attached a script to this prefab which would
+                        dictate how the pupil would move. Within this script I added a boolean variable for storing whether the player was in the eye's field of vision, a Vector2 variable 
+                        storing the pupil's direction and 2 Rigidbody2D variables: one for the pupil's rigidbody and the other for the player's rigidbody.
+                        <br><br>
+                        I then created the actual functionality for making the pupil follow the player within this script. Using the OnTriggerEnter2D function, I detected when an object entered
+                        the eye's box collider and within this function I created a check to see if the object that entered the collider was the player. If it was the player, the boolean 
+                        storing whether the player was in sight is set to true and the Rigidbody2D variable used for storing the player's rigidbody is set to the Rigidbody2D component attached
+                        to the player object. I also used the OnTriggerExit2D function to detect when the player left the eye's box collider and when this event is called, the boolean variable
+                        is set to false.
+                        <br><br>
+                        Once I had set up this functionality to detect when the player was in the eye's field of vision, I then made the functionality that would actually make
+                        the pupil move in the correct direction. When the player is in the eye's field of vision, a check is made to see if the player's linear velocity in the x direction
+                        is more than, less than or equal to 0. If the player's linear velocity is more than 0, they are therefore moving right and so the direction the pupil should
+                        move in is set to right. If the player's linear velocity is less than 0, they are therefore moving left and so the direction the pupil should move in is set to left.
+                        Finally, if the player's linear velocity is 0, then they aren't moving so the direction the pupil should move in is set to the zero vector like it is when the player
+                        is out of sight. Then, I used the FixedUpdate method to handle calculating the pupil's linear velocity using the direction it should be moving in so that the pupil can 
+                        actually move in the correct direction.
+                        <br><br>
+                        This method for creating the eye movement works so far for the game and there aren't any major issues with it however, I may change the way it works slightly in the 
+                        future as I feel there are ways of doing this that may be a bit better such as possibly using the player's position relative to the pupil's rather than just using the 
+                        direction that the player is moving in to calculate the direction that the pupil should move in too.
+                    </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section class = "card" style = "margin-bottom: 50px;">
+            <div>
+                <h2>What I Learned</h2>
+                <p style="font-size:160%; margin-left: 50px; margin-right:50px">
+                    While making this game I learned 
+                </p>
+            </div>
+        </section> 
     </body>
 </html>

@@ -22,168 +22,176 @@
                 <a href = "game_jams.html" style = "text-align: center;">Game Jam Submissions</a>
             </p>
         </div>
-        <hr>
         <!--About the Game-->
-        <h2>About the Game</h2>
-        <div style = "margin-left:120px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
-            <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
-                Time Frame: 8 weeks
-                <br><br>
-                Team Size: 1
-                <br><br>
-                Language/Engine Used: Blueprint, Unreal
-                <br><br>
-                Main Contributions:
-                <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
-                    - 5 additional player weapons<br>
-                    - 6 types of enemies and 4 enemy weapons<br>
-                    - 1 boss enemy<br>
-                    - Movement and functionality of doors
-                </div>
-            </p>
-        </div>
-        <p>
-            This is a game I made as part of the Mechanics Prototyping module I took in my first year of university. We were provided with a framework which contained some base
-            functionality for certain things such as the player and their starting weapon and we were expected to build upon this framework in order to create our game. In the
-            game, you have to navigate through the level, battling enemies using a variety of different weapons, avoiding lava and other environmental dangers before finally 
-            taking on a boss battle in order to escape.
-            <!--
-            <br><br>
-            <div style="margin-left:120px;margin-right:40px;font-size: 150%;background-color:rgb(4,5,6); border-radius:10px">
-                <p>
-                    My main contributions to this project were:
-                    <br>
-                    <div style="margin-top:-10px">
-                        <p>
+        <section class = "card">
+            <div>
+                <h2>About the Game</h2>
+                <div style = "margin-left:50px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
+                    <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                        Time Frame: 8 weeks
+                        <br><br>
+                        Team Size: 1
+                        <br><br>
+                        Language/Engine Used: Blueprint, Unreal
+                        <br><br>
+                        Main Contributions:
+                        <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
                             - 5 additional player weapons<br>
-                            - 6 enemies with AI for movement and attacks<br>
-                            - 4 enemy weapons<br>
-                            - Functionality of doors
-                        </p>
+                            - 6 types of enemies and 4 enemy weapons<br>
+                            - 1 boss enemy<br>
+                            - Movement and functionality of doors
+                        </div>
+                    </p>
+                </div>
+                <p style = "margin-left:50px; margin-right: 50px;">
+                    This is a game I made as part of the Mechanics Prototyping module I took in my first year of university. We were provided with a framework which contained some base
+                    functionality for certain things such as the player and their starting weapon and we were expected to build upon this framework in order to create our game. In the
+                    game, you have to navigate through the level, battling enemies using a variety of different weapons, avoiding lava and other environmental dangers before finally 
+                    taking on a boss battle in order to escape.
+                    <br>
+                    <div style="text-align: center; align-items: center; margin-right: 120px;margin-left:50px;">
+                        <a href = "https://megsgem.itch.io/tank-game">
+                            <img src = "images/homepage/play icon 7.png" alt = "Play Icon" width = 90 height = 93.6>
+                        </a>
                     </div>
                 </p>
             </div>
-            -->
-            <br>
-            <div style="margin-right:120px;margin-left:1100px">
-                <a href = "https://megsgem.itch.io/tank-game">
-                    <img src = "images/homepage/play icon 7.png" alt = "Play Icon" width = 90 height = 93.6>
-                </a>
-            </div>
-        </p>
-        <hr>
+        </section>
+        
         <!--Mechanics info sections-->
-        <h3 style="margin-bottom:5px;margin-top: 30px;">Doors</h3>
-        <p style="margin-top:15px; font-size:150%">
-            One of the things that I made that wasn't based on anything we were given in the framework was the functionality for the doors in my game. The main thing I wanted the doors
-            in my game to do was to just open smoothly when the player got near and to close when they moved away. However, I did also need to make doors that locked specifically for the boss
-            room.
-            <br><br>
-            I started by first making a base door class which handles the basic functionality of making the door open and close. Due to the 3D models we were given as part
-            of the framework, I had to make seperate actors for the left and right doors. Aside from the mesh for the door, these actors also had a box collider and I used
-            a 'On Component Overlap' node alongside custom collision chanels to check whether the player was within this box collider. I then made a custom event which would be
-            used to open the door and would be called when the player enters the door's box collider. Every time this event is called, the door is moved by a small amount until
-            it is a certain distance away from its original starting position. When the player enters the door's box collider, I used a 'Set Timer by Event' node to call the 'Open Door'
-            event every 0.01 seconds in order to make the door open smoothly.
-            <br><br>
-            Getting the door to close smoothly was somewhat harder than opening it as at first I kept encountering an error that the way I had originally tried to accomplish this would
-            cause an infinite loop. At first, the way I had tried to make the door close was similar to how I had made the door open by creating a custom event and binding this to a 
-            timer which would call this custom event every 0.01 seconds once the player has exitted the door's box collider except the custom event would move the door in the oposite 
-            direction to the way the 'Open Door' custom event would. However, this original method would cause an infinite loop to occur. I eventually figured out that this was because
-            the door was constantly trying to close once the player had left its box collider. Fixing this was fairly easy as I just needed to add a 'Do Once' node which meant that once
-            the door was closed, it wouldn't keep on trying to close itself.
-            <br><br>
-            These base door classes are the doors that I used the most throughout my game as for most of the doors in my game, I just needed them to open and close. However, for the room
-            where the player would fight the boss enemy, I wanted the some doors that would be able to be locked and unlocked. This was because I didn't want the player to be able to leave
-            this room once the boss battle had begun and I also didn't want them to be able to move on until they had defeated the boss. I first created a child of each of the base door
-            classes (the left door and the right door) and I added a new boolean variable to these child classes which stored whether the door was locked or not. This variable is checked
-            before the door is opened so that the door isn't opened once it is locked and it is set to true once the door is closed and the player has crossed the threshold of the door.
-            The only issue I initially had with this was that if the player had passed by the door (making the door open) without going through it, allowed the door to close again and then
-            went through the door, the door wouldn't lock once the player was in the boss room thus allowing them to possibly escape during the boss fight. I eventually managed to fix
-            this by instead checking whether the value of the boolean variable should be set to true every time the timer ticked rather than just once the door was closed. I originally
-            hadn't done this as it would have been more computationally expensive but it was the only way I could find to solve this issue. These were the doors I used for the entrance
-            to the boss room but I still needed to make doors for the exit to the boss room which would stay locked until the boss enemy was defeated.
-            <br><br>
-            For these doors, I needed some way of checking whether the boss enemy had been defeated. I originally tried to do this within the Blueprint for the doors but I found that
-            this wouldn't work so I needed to use a different approach so I decided to use the Level Blueprint for this. Since this was the first time I had ever used the Level
-            Blueprint, I decided to do some research before proceeding with this approach to make sure that I understood the Level Blueprint and whether using it would be the correct
-            solution. Once I learned more about the Level Blueprint and decided to use it, the solution was fairly simple as all I needed to do within the Level Blueprint was to
-             get a reference to the boss enemy actor, check the variable which stored whether it had been defeated, get references to the door actors and then set the variables 
-             which stored whether they were locked. I also made sure that the doors were only set to unlocked once as, even though setting them as unlocked multiple times 
-             wouldn't affect the doors' functionality, it would be more computationally expensive if the variable in the door classes was constantly being set.
-        </p>
-        <h3 style="margin-bottom:5px;margin-top:10px">Enemy AI</h3>
-        <p style="margin-top:15px;font-size:150%">
-            In total, there are 6 types of enemies that the player encounters throughout the game as well as the final boss enemy they battle at the end and I wanted each of
-            these enemies to feel different to one another. One way I did this was with the way the enemy's AI would dictate the way it moved and the way in which it attacked.
-            <br><br>
-            Before making any unique enemy classes, I first made a base enemy class. This contains the base enemy's mesh and a sphere collider as well as the base health for all
-            enemies, the base fire rate for all enemies and the functionality for: the enemy's behaviour when it is damaged, its behaviour when it dies, its attacks, 
-            its movement and detecting whether the player is close by.
-            <br><br>
-            I then made two child classes of this base enemy class, each of which would move in a different way: moving to random places nearby or chasing the player.
-            In order to make the enemy move randomly around the room they are in, I used a nav mesh so that the enemy could know what points were reachable. I then used the 
-            'Get Random Reachable Point In Radius' node in order to get a random point that the enemy could reach. This is then set as the destination that the enemy will move 
-            to using the 'AI Move To' node, thus making the enemy move to random points around the room.
-            For the enemy that would chase the player, I also used the 'AI Move To' node but instead of setting a target destination, I set the player as a target actor that the
-            enemy would move towards. In order for this to work, I also had to check whether the player was valid before the enemy moves towards them so if the player actor doesn't 
-            currently exist (for example, if they are dead), then the enemy will stop chasing them.
-            <br><br>
-            These different movement behaviours did make the different enemies seem somewhat distinct from one another but I also wanted there to be different ways that the enemies
-            would attack the player. As well as giving the enemies different weapons, I also made their attacking behaviour different with there being 2 different attacking behaviours
-            that the enemies could have: shooting randomly without aiming or aiming at the player. To make the functionality for the enemy to fire randomly at the player, I used the 
-            'Random Rotator' node to get a random rotation for the z-axis of the enemy's turret - and thus a random direction for the enemy to fire in. This meant that the projectile
-            being fired would spawn in a random direction when fired.
-            Making the enemies aim at the player was somewhat more complex. Within the enemy's attack method, I first checked whether the player actor was valid, meaning that it existed
-            and the enemy could fire at it so the enemy only spawns projectiles if the player is valid. In order to get the rotation that the projectile being fired should be spawned at
-            I got the location of the player and then used the 'Find Look at Rotation' node to find the direction the projectile needed to be spawned at by finding the rotation from 
-            the enemy's turret to the player's location. This meant that the projectile would be spawned in the direction of the player.
-        </p>
-        <h3 style="margin-bottom:5px; margin-top:10px">Weapons</h3>
-        <p style="font-size:150%;margin-top:15px;margin-bottom: 35px;">
-            For this game, I wanted both the player and the enemies to have a relatively wide range of unique weapons which they could use. The framework we were provided with
-            provided a base weapon class which I used to build my weapons upon. I made 4 additional weapons on top of the base weapon class and I wanted each weapon to not only
-            do different amounts of damage and for the projectiles to work differently but also for each weapon to have a different feel to them.
-            <br><br>
-            Before creating any additional weapons, I first edited the base weapon class to contain a fire rate variable so that the weapons would fire projectiles at a set rate.
-            Every new weapon class I created is a child of this base weapon class so this allowed for all of the weapons to have different fire rates. For each new weapon I also had
-            to create new projectile classes which were children of the base projectile class we were provided with.
-            <br><br>
-            I made 5 additional player weapons on top of the base weapon that the player starts with: a faster, 'automatic' type weapon; a blaster weapon, a weapon with bouncing projectiles;
-            a grenade-launcher like weapon with exploding projectiles and a flamethrower. For the weapons that fire projectiles (which is all except for the flamethrower) I gave each
-            of them different fire rates and made the projectiles they fired do different amounts of damage based on the way I wanted that weapon to feel when the player was using it.
-            For example, the faster weapon has a higher fire rate than the other weapons as I wanted it to have a more 'automatic' feel to it, thus the cooldown time for it is shorter.
-            Conversely, the blaster weapon has a lower fire rate and a higher cooldown time in order to try and simulate the feel of it being 'charged' in order to fire a projectile. To
-            further help give the weapon this feel, the projectiles it fires are bigger than other projectiles and also do more damage.
-            <br><br>
-            The weapon that fires exploding projectiles is somewhat different to the others as I gave it functionality tonot just damage the object it hits but to also apply radial 
-            damage to objects within a certain radius of its impact point. This weapon's projectiles also have gravity applied to them while the others don't, giving the
-            effect that this weapon is firing actual objects rather than just some sort of energy. I also added camera shake upon an exploding projectile's explosion to make it
-            seem more like an explosion had occurred.
-            <br><br>
-            The flamethrower is also different to the other weapons as I got rid of this weapon class's ability to spawn projectiles and it instead uses a particle system to
-            simulate fire. In order to detect what has been hit and apply damage accordingly, this weapon class uses a multi sphere trace node to detect any enemies or destructibles 
-            that were hit, adds any of these that are detected to an array and then loops through this array to apply damage to everything that has been hit before finally 
-            setting the weapon's cooldown.
-            <br><br>
-            As well as the weapon's for the player I created 2 aditional enemy weapons on top of the base enemy weapon that most of them have. The first of these weapons is a 
-            homing weapon which will home in on the player once they have been fired. These projectiles aren't spherical like the other kinds of projectiles so I had to give them
-            functionality to face the direction they have been fired in by using the 'Rinterp To' node to interpolate between its current rotation and where its target is.
-            I also set the player as a target for these homing projectiles meaning they will home in on the player. The second additional enemy weapon I made were mines that the enemies
-            can drop that will explode when the player gets within the bounds of its collider. Like the player's exploding projectiles, I added camera shake to these projectiles too 
-            to give the effect of an explosion.
-        </p>
-        <hr>
-        <h2>What I Learned</h2>
-        <p style="font-size:160%; margin-bottom: 50px;">
-            During the process of making this game, I learned a lot about Blueprint as this was my first time working with it and I also learned quite a lot about how it can be useful
-            especially when prototyping features for a game. While I do still prefer C++ as I feel that it provides more control over data and broader access to functions and variables,
-            Blueprint is something I may continue to use in the future if I need to quickly prototype features or mechanics. 
-            <br><br>
-            Additionally, while creating many of the features of this game, I thought more about the player's experience than I had done previously. This is something I will continue
-            to take into consideration more in the future as the player's experience is very important and even if something may be slightly more computationally expensive, it is 
-            sometimes worth implementing for the benefit of the player's experience.
-        </p>
+        <section class = "card">
+            <div>
+                <article class = "panel">
+                    <div>
+                        <h3 style="margin-bottom:5px;margin-top: 30px;">Doors</h3>
+                        <p style="margin-top:15px; font-size:150%">
+                            One of the things that I made that wasn't based on anything we were given in the framework was the functionality for the doors in my game. The main thing I wanted the doors
+                            in my game to do was to just open smoothly when the player got near and to close when they moved away. However, I did also need to make doors that locked specifically for the boss
+                            room.
+                            <br><br>
+                            I started by first making a base door class which handles the basic functionality of making the door open and close. Due to the 3D models we were given as part
+                            of the framework, I had to make seperate actors for the left and right doors. Aside from the mesh for the door, these actors also had a box collider and I used
+                            a 'On Component Overlap' node alongside custom collision chanels to check whether the player was within this box collider. I then made a custom event which would be
+                            used to open the door and would be called when the player enters the door's box collider. Every time this event is called, the door is moved by a small amount until
+                            it is a certain distance away from its original starting position. When the player enters the door's box collider, I used a 'Set Timer by Event' node to call the 'Open Door'
+                            event every 0.01 seconds in order to make the door open smoothly.
+                            <br><br>
+                            Getting the door to close smoothly was somewhat harder than opening it as at first I kept encountering an error that the way I had originally tried to accomplish this would
+                            cause an infinite loop. At first, the way I had tried to make the door close was similar to how I had made the door open by creating a custom event and binding this to a 
+                            timer which would call this custom event every 0.01 seconds once the player has exitted the door's box collider except the custom event would move the door in the oposite 
+                            direction to the way the 'Open Door' custom event would. However, this original method would cause an infinite loop to occur. I eventually figured out that this was because
+                            the door was constantly trying to close once the player had left its box collider. Fixing this was fairly easy as I just needed to add a 'Do Once' node which meant that once
+                            the door was closed, it wouldn't keep on trying to close itself.
+                            <br><br>
+                            These base door classes are the doors that I used the most throughout my game as for most of the doors in my game, I just needed them to open and close. However, for the room
+                            where the player would fight the boss enemy, I wanted the some doors that would be able to be locked and unlocked. This was because I didn't want the player to be able to leave
+                            this room once the boss battle had begun and I also didn't want them to be able to move on until they had defeated the boss. I first created a child of each of the base door
+                            classes (the left door and the right door) and I added a new boolean variable to these child classes which stored whether the door was locked or not. This variable is checked
+                            before the door is opened so that the door isn't opened once it is locked and it is set to true once the door is closed and the player has crossed the threshold of the door.
+                            The only issue I initially had with this was that if the player had passed by the door (making the door open) without going through it, allowed the door to close again and then
+                            went through the door, the door wouldn't lock once the player was in the boss room thus allowing them to possibly escape during the boss fight. I eventually managed to fix
+                            this by instead checking whether the value of the boolean variable should be set to true every time the timer ticked rather than just once the door was closed. I originally
+                            hadn't done this as it would have been more computationally expensive but it was the only way I could find to solve this issue. These were the doors I used for the entrance
+                            to the boss room but I still needed to make doors for the exit to the boss room which would stay locked until the boss enemy was defeated.
+                            <br><br>
+                            For these doors, I needed some way of checking whether the boss enemy had been defeated. I originally tried to do this within the Blueprint for the doors but I found that
+                            this wouldn't work so I needed to use a different approach so I decided to use the Level Blueprint for this. Since this was the first time I had ever used the Level
+                            Blueprint, I decided to do some research before proceeding with this approach to make sure that I understood the Level Blueprint and whether using it would be the correct
+                            solution. Once I learned more about the Level Blueprint and decided to use it, the solution was fairly simple as all I needed to do within the Level Blueprint was to
+                            get a reference to the boss enemy actor, check the variable which stored whether it had been defeated, get references to the door actors and then set the variables 
+                            which stored whether they were locked. I also made sure that the doors were only set to unlocked once as, even though setting them as unlocked multiple times 
+                            wouldn't affect the doors' functionality, it would be more computationally expensive if the variable in the door classes was constantly being set.
+                        </p>
+                    </div>
+                </article>
+
+                <article class = "panel">
+                    <div>
+                        <h3 style="margin-bottom:5px;margin-top:30px">Enemy AI</h3>
+                        <p style="margin-top:15px;font-size:150%">
+                            In total, there are 6 types of enemies that the player encounters throughout the game as well as the final boss enemy they battle at the end and I wanted each of
+                            these enemies to feel different to one another. One way I did this was with the way the enemy's AI would dictate the way it moved and the way in which it attacked.
+                            <br><br>
+                            Before making any unique enemy classes, I first made a base enemy class. This contains the base enemy's mesh and a sphere collider as well as the base health for all
+                            enemies, the base fire rate for all enemies and the functionality for: the enemy's behaviour when it is damaged, its behaviour when it dies, its attacks, 
+                            its movement and detecting whether the player is close by.
+                            <br><br>
+                            I then made two child classes of this base enemy class, each of which would move in a different way: moving to random places nearby or chasing the player.
+                            In order to make the enemy move randomly around the room they are in, I used a nav mesh so that the enemy could know what points were reachable. I then used the 
+                            'Get Random Reachable Point In Radius' node in order to get a random point that the enemy could reach. This is then set as the destination that the enemy will move 
+                            to using the 'AI Move To' node, thus making the enemy move to random points around the room.
+                            For the enemy that would chase the player, I also used the 'AI Move To' node but instead of setting a target destination, I set the player as a target actor that the
+                            enemy would move towards. In order for this to work, I also had to check whether the player was valid before the enemy moves towards them so if the player actor doesn't 
+                            currently exist (for example, if they are dead), then the enemy will stop chasing them.
+                            <br><br>
+                            These different movement behaviours did make the different enemies seem somewhat distinct from one another but I also wanted there to be different ways that the enemies
+                            would attack the player. As well as giving the enemies different weapons, I also made their attacking behaviour different with there being 2 different attacking behaviours
+                            that the enemies could have: shooting randomly without aiming or aiming at the player. To make the functionality for the enemy to fire randomly at the player, I used the 
+                            'Random Rotator' node to get a random rotation for the z-axis of the enemy's turret - and thus a random direction for the enemy to fire in. This meant that the projectile
+                            being fired would spawn in a random direction when fired.
+                            Making the enemies aim at the player was somewhat more complex. Within the enemy's attack method, I first checked whether the player actor was valid, meaning that it existed
+                            and the enemy could fire at it so the enemy only spawns projectiles if the player is valid. In order to get the rotation that the projectile being fired should be spawned at
+                            I got the location of the player and then used the 'Find Look at Rotation' node to find the direction the projectile needed to be spawned at by finding the rotation from 
+                            the enemy's turret to the player's location. This meant that the projectile would be spawned in the direction of the player.
+                        </p>
+                    </div>
+                </article>
+
+                <article class = "panel">
+                    <div>
+                        <h3 style="margin-bottom:5px; margin-top:30px">Weapons</h3>
+                        <p style="font-size:150%;margin-top:15px;margin-bottom: 35px;">
+                            For this game, I wanted both the player and the enemies to have a relatively wide range of unique weapons which they could use. The framework we were provided with
+                            provided a base weapon class which I used to build my weapons upon. I made 4 additional weapons on top of the base weapon class and I wanted each weapon to not only
+                            do different amounts of damage and for the projectiles to work differently but also for each weapon to have a different feel to them.
+                            <br><br>
+                            Before creating any additional weapons, I first edited the base weapon class to contain a fire rate variable so that the weapons would fire projectiles at a set rate.
+                            Every new weapon class I created is a child of this base weapon class so this allowed for all of the weapons to have different fire rates. For each new weapon I also had
+                            to create new projectile classes which were children of the base projectile class we were provided with.
+                            <br><br>
+                            I made 5 additional player weapons on top of the base weapon that the player starts with: a faster, 'automatic' type weapon; a blaster weapon, a weapon with bouncing projectiles;
+                            a grenade-launcher like weapon with exploding projectiles and a flamethrower. For the weapons that fire projectiles (which is all except for the flamethrower) I gave each
+                            of them different fire rates and made the projectiles they fired do different amounts of damage based on the way I wanted that weapon to feel when the player was using it.
+                            For example, the faster weapon has a higher fire rate than the other weapons as I wanted it to have a more 'automatic' feel to it, thus the cooldown time for it is shorter.
+                            Conversely, the blaster weapon has a lower fire rate and a higher cooldown time in order to try and simulate the feel of it being 'charged' in order to fire a projectile. To
+                            further help give the weapon this feel, the projectiles it fires are bigger than other projectiles and also do more damage.
+                            <br><br>
+                            The weapon that fires exploding projectiles is somewhat different to the others as I gave it functionality tonot just damage the object it hits but to also apply radial 
+                            damage to objects within a certain radius of its impact point. This weapon's projectiles also have gravity applied to them while the others don't, giving the
+                            effect that this weapon is firing actual objects rather than just some sort of energy. I also added camera shake upon an exploding projectile's explosion to make it
+                            seem more like an explosion had occurred.
+                            <br><br>
+                            The flamethrower is also different to the other weapons as I got rid of this weapon class's ability to spawn projectiles and it instead uses a particle system to
+                            simulate fire. In order to detect what has been hit and apply damage accordingly, this weapon class uses a multi sphere trace node to detect any enemies or destructibles 
+                            that were hit, adds any of these that are detected to an array and then loops through this array to apply damage to everything that has been hit before finally 
+                            setting the weapon's cooldown.
+                            <br><br>
+                            As well as the weapon's for the player I created 2 aditional enemy weapons on top of the base enemy weapon that most of them have. The first of these weapons is a 
+                            homing weapon which will home in on the player once they have been fired. These projectiles aren't spherical like the other kinds of projectiles so I had to give them
+                            functionality to face the direction they have been fired in by using the 'Rinterp To' node to interpolate between its current rotation and where its target is.
+                            I also set the player as a target for these homing projectiles meaning they will home in on the player. The second additional enemy weapon I made were mines that the enemies
+                            can drop that will explode when the player gets within the bounds of its collider. Like the player's exploding projectiles, I added camera shake to these projectiles too 
+                            to give the effect of an explosion.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class = "card">
+            <div>
+                <h2>What I Learned</h2>
+                <p style="font-size:160%; margin-left:50px; margin-right:50px">
+                    During the process of making this game, I learned a lot about Blueprint as this was my first time working with it and I also learned quite a lot about how it can be useful
+                    especially when prototyping features for a game. While I do still prefer C++ as I feel that it provides more control over data and broader access to functions and variables,
+                    Blueprint is something I may continue to use in the future if I need to quickly prototype features or mechanics. 
+                    <br><br>
+                    Additionally, while creating many of the features of this game, I thought more about the player's experience than I had done previously. This is something I will continue
+                    to take into consideration more in the future as the player's experience is very important and even if something may be slightly more computationally expensive, it is 
+                    sometimes worth implementing for the benefit of the player's experience.
+                </p>
+            </div>
+        </section>
         <hr>
         <br><br><br><br>
         <!--Pictures and videos-->

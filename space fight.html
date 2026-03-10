@@ -14,76 +14,140 @@
 </head>
 <body>
     <h1>Space Fight</h1>
-        <div style = "text-align: center;">
-            <p style="font-size: 100%;">
-                <a href = "index.html" style = "text-align: center;">Home</a>
-                | 
-                <a href = "game_jams.html" style = "text-align: center;">Game Jam Submissions</a>
-            </p>
-        </div>
-        <hr>
-        <h2>About the Game</h2>
-        <div style = "margin-bottom:20px;margin-left:120px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
-            <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
-                Time Frame: 8 weeks
-                <br><br>
-                Team Size: 1
-                <br><br>
-                Language/Library used: C#, Monogame
-                <br><br>
-                Main Contributions:
-                <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
-                    - Client-Server Model for Data Transmission<br>
-                    - Data Replication Across the Network <br>
-                    - Basic Lobby System<br>
-                    - Packet Encryption and Security<br>
-                    - Score System<br>
-                    - TCP and UDP 
+        <div style = "text-align: center;margin-top: 2%;">
+            <article class = "links_bar" style="align-items: center; margin-right:80px; margin-left:80px">
+                <div>
+                    <!--<p style="font-size:100%;text-align: center;">
+                        <a href = "index.html">Home </a>
+                        |  
+                        <a href = "game_jams.html"> Game Jam Submissions </a>
+                    </p>-->
+                    <ul>
+                        <li><a href = "index.html" alt = "Home">Home</a></li>
+                        <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
+                    </ul>
                 </div>
-            </p>
+            </article>
         </div>
-        <p>
-            This is a game that I made as part of the Multiplayer Games Module that I took in my second year of university. Over the course of creating this game, I worked with
-            multithreading to create a networked game and used a server-client model to allow multiple players play the game with each other. I was given a framework as part of
-            this module which contained a basic game scene as well as the things within this scene such as game objects but I built upon this framework to create my own game and 
-            created the functionality for the server, clients and data transmission which allowed the game to be played across a network by multiple users at once.
-            <br><br>
-            The game is inspired by games such as Space Invaders and is a relatively simple 2D shooter game set in space where the players must destroy all the enemy ships before
-            they themselves are defeated. As well as this, if the players defeat the enemies and win, the players are presented with a leaderboard showing which of them achieved
-            the highest score.
-        </p>
-        <hr>
-        <!--Data Replication-->
-        <h3 style="margin-bottom:5px; margin-top:30px">Data Replication</h3>
-        <p style="margin-top:15px; font-size:150%">
-            Data replication is ... and is very important for multiplayer games as it is essential for the experience of the players that they all see and experience the same
-            world state. While creating this game, there were many pieces of data that I needed to replicate across the clients connected to the server and during the process of
-            implementing ways to do this, I encountered various different problems when replicating the different pieces of data which I had to solve.
-            <br><br>
-            <!--Ships-->
-            One of the main things that I needed to replicate across the different clients playing the game was data to do with the ships that the players control. Each player 
-            controls one ship but in order to make sure the players experience the same world state, they will also need to see the other ship's actions in real time as the other
-            players control them. 
-
-            <br><br>
-            <!--Bullets-->
-            In order to defeat the enemy ships, the players are able to fire bullets at them and therefore every player needs to see the bullets that the other players fire.
-
-            <br><br>
-            <!--Clients connected-->
-            As part of the lobby system I decided to implement as part of my project, I wanted each client to know how many clients were currently connected to the server so that
-            they were able to know if the lobby was full or had enough players to be able to start the game. Because of this, I needed each client to know the number of players
-            currently connected to the server so it could be accurately displayed to each player and therefore this data needed to be updated and replicated across clients.
-
-            <br><br>
-            <!--Scores-->
-            Due to the fact that I wanted to create a score system and leaderboard as part of my project, I needed to replicate each player's score across the network so that 
-            each client in the network would be able to display the scores on the leaderboard if the players win the game.
-            
-        </p>
-        <h2>What I Learned</h2>
-        <p style="font-size:160%;margin-bottom:55px">
-            This project was the first time I had encountered multithreading and building networked games and over the course of working on this project I learned a lot about both
-            of these things as well as the solutions to the new and unique challenges they presented.
-        </p>
+        
+        <section class = "card">
+            <div>
+                <h2>About the Game</h2>
+                <div style = "margin-bottom:20px;margin-left:50px; margin-top: 40px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
+                    <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                        Time Frame: 8 weeks
+                        <br><br>
+                        Team Size: 1
+                        <br><br>
+                        Language/Library used: C#, Monogame
+                        <br><br>
+                        Main Contributions:
+                        <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                            - Client-Server Model for Data Transmission<br>
+                            - Data Replication Across the Network <br>
+                            - Basic Lobby System<br>
+                            - Packet Encryption and Security<br>
+                            - Score System<br>
+                            - TCP and UDP <br>
+                        </div>
+                    </p>
+                </div>
+                <p style = "margin-right: 50px;">
+                    This is a game that I made as part of the Multiplayer Games Module that I took in my second year of university. Over the course of creating this game, I worked with
+                    multithreading to create a networked game and used a server-client model to allow multiple players play the game with each other. I was given a framework as part of
+                    this module which contained a basic game scene as well as the things within this scene such as game objects but I built upon this framework to create my own game and 
+                    created the functionality for the server, clients and data transmission which allowed the game to be played across a network by multiple users at once.
+                    <br><br>
+                    The game is inspired by games such as Space Invaders and is a relatively simple 2D shooter game set in space where the players must destroy all the enemy ships before
+                    they themselves are defeated. As well as this, if the players defeat the enemies and win, the players are presented with a leaderboard showing which of them achieved
+                    the highest score.
+                </p>
+            </div>
+        </section>
+        
+        <section class = "card">
+            <div>
+                <article class = "panel">
+                    <!--Data Replication-->
+                    <h3 style="margin-bottom:5px; margin-top:30px">Data Replication</h3>
+                    <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px">
+                        Data replication is when data is transmitted from one client on a network to another and is very important for multiplayer games as it is essential for the 
+                        experience of the players that they all see and experience the same world state. While creating this game, there were many pieces of data that I needed to replicate 
+                        across the clients connected to the server and during the process of implementing ways to do this, I encountered various different problems when replicating the 
+                        different pieces of data which I had to solve.
+                        <br><br>
+                        <!--Ships-->
+                        One of the main things that I needed to replicate across the different clients playing the game was data to do with the ships that the players control. Each player 
+                        controls one ship but in order to make sure the players experience the same world state, they will also need to see the other ship's actions in real time as the other
+                        players control them.
+                        <br><br>
+                        The first thing I did in order to facilitate this was to create a new packet class which would be sent across the network from one client to another and would
+                        contain information related to the position of a ship as well as the ID of that ship. Whenever one of the players moves their ship, a position packet is sent 
+                        across the network via a UDP message and this position packet will update the other clients in the network about that player's ship's position. I decided to do
+                        this via a UDP message rather than a TCP one as UDP is a connectionless communication protocol and therefore doesn't need to establish a connection with each
+                        client before sending the packet. This is good for broadcasting data across a network to all connected clients which is what I needed to do for this project.
+                        When the server recieves a position packet from one client, it will then send it to the other clients on the network and when these clients recieve this position
+                        packet, they will invoke the action for what should happen if a ship moves. Currently, this action is bound to a function which sets the position and rotation of the 
+                        RemoteShip object with the same ID as the ship that is moving to be the ones passed in to the function which are the ones contained within the position packet. These
+                        RemoteShip objects can only be moved in this way and are used to show a player the position and rotation of the other players' ships.
+                        <!--<br><br>
+                        I didn't have much of an issue implementing this in my project with the biggest challenge being figuring out how to broadcast the position packet to the all of the other
+                        clients connected to the server. The way I solved this was by checking the IP endpoints of the clients connected to the server to see whether they were the same as the 
+                        one of the client that sent the message and, if not, then the position packet is sent to that client.-->
+                        <br><br>
+                        <!--Bullets-->
+                        In order to defeat the enemy ships, the players are able to fire bullets at them and therefore every player needs to see the bullets that the other players fire.
+                        This was a problem that was somewhat more difficult to solve than replicating the movement of the other players' ships as not only did the replicated bullet have to 
+                        move in the same direction as the bullet that was fired but it also had to be spawned at the correct place at the correct time. I also didn't want to take a similar 
+                        approach to the one I had taken when replicating the ships' movement - by creating a 'RemoteBullet' class and sending position packets across the network every time 
+                        a bullet's position changed - as the bullets are constantly moving and therefore position packets are going to have to be continuously sent through the network,
+                        potentially for many bullets at a time. Instead, I decided to take a different approach which I felt would be better for my project.
+                        <br><br>
+                        Instead of using a position packet, I created a new type of packet called a 'bullet packet' which would contain information about the bullet fired by the player such
+                        as its velocity and start position as well as the ID of the ship that fired it. These bullet packets are sent from one client each time a player fires a bullet and are 
+                        sent to the server which then sends the packet to the rest of the clients. Once a client has recieved a bullet packet from the server, it will invoke the action bound to
+                        the firing of a weapon. This action will call the Fire function of the weapon component attached to the remote ship with the same ID as the ship that fired the bullet and 
+                        this Fire function will spawn a bullet with the same starting position, rotation and velocity as the one fired by the player on the replicated client. This means that 
+                        bullets fired by players should appear on all clients and move in the same way across all of them, assuming that the world state is the same for all clients. I used this
+                        approach of prediciting the bullet's movement on the replicated client using data about its starting position, rotation and velocity as this requires only one packet to be 
+                        per bullet and therefore reduces the amount of work the server and clients have to do.
+                        <br><br>
+                        <!--Scores//
+                        Due to the fact that I wanted to create a score system and leaderboard as part of my project, I needed to replicate each player's score across the network so that 
+                        each client in the network would be able to display the scores on the leaderboard if the players win the game.
+                        
+                        <br><br>
+                        //Clients connected//
+                        As part of the lobby system I decided to implement as part of my project, I wanted each client to know how many clients were currently connected to the server so that
+                        they were able to know if the lobby was full or had enough players to be able to start the game. Because of this, I needed each client to know the number of players
+                        currently connected to the server so it could be accurately displayed to each player an, therefore, this data needed to be updated and replicated across clients.
+                        -->
+                        There were other pieces of data in my project that had to be replicated such as the players' scores for the score system and the number of clients 
+                        connected to the game as part of the lobby system. These pieces of data were replicated in similar ways to the other pieces of data that are replicated 
+                        across clients: by using a new type of packet as a way to transmit the data and, when recieved by the server from one of the clients, sending this 
+                        packet to all other connected clients. The biggest issue I had with replicating these pieces of data across clients was figuring out when exactly to send
+                        the data from one client to another as doing this at different moments could affect the outcome. For example, I initially tried to send the packet containing
+                        data about the updated number of clients connected to the server immediately after each client connected to the server. However, this wouldn't work and the 
+                        text on the other clients which displayed the current number of clients connected wouldn't change. I found that to solve this, the packet had to be sent after
+                        the client had logged in to the game and sending the data at this point would update the text on the other clients. Similarly, when sending the packet containing
+                        the data about a player's score, I initially tried sending it once the game had ended for all players however, I realised that this wouldn't work as the clients
+                        had disconnected from the game at this point. To solve this, I instead sent this data as soon as the conditions for the player's game ending were met (the player 
+                        dies, their time runs out or all enemies are defeated) but before the game's state for that player had been changed to 'Ending'. This meant that once a player's
+                        game ended, the other players would recieve their score and thus it would be able to be displayed on the score board on that client once the game has ended for 
+                        them too.
+                    </p>
+                </article>
+            </div>
+        </section>
+        
+        <section class = "card">
+            <div>
+                <h2>What I Learned</h2>
+                <p style="font-size:160%;margin-bottom:55px; margin-right:50px; margin-left:50px">
+                    This project was the first time I had encountered multithreading and building networked games and over the course of working on this project I learned a lot about both
+                    of these things as well as the solutions to the new and unique challenges they presented and many of the things I learned when working on this project are things I will
+                    use in the future.
+                </p>
+            </div>
+        </section>
 </body>

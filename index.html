@@ -24,12 +24,19 @@
                 <img src="images/homepage/linkedin logo.png" alt="LinkedIn logo" width=75 height=67.5>
             </a>
             <br>
-            <p style="font-size:100%">
-                <a href = "index.html">Home </a>
-                  |  
-                <a href = "game_jams.html"> Game Jam Submissions </a>
-            </p>
+
         </div>
+        <article class = "links_bar" style="margin-right:60px;margin-left: 60px;">
+                    <!--<p style="font-size:100%;text-align: center;">
+                        <a href = "index.html">Home </a>
+                        |  
+                        <a href = "game_jams.html"> Game Jam Submissions </a>
+                    </p>-->
+            <ul>
+                <li class = "active"><a href = "index.html" alt = "Home">Home</a></li>
+                <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
+            </ul>
+        </article>
         <!--About me section-->
         <section class = "card">
             <div>
@@ -151,21 +158,66 @@
                     </div>
                 </article>
                 
-                <!--Mechanics Prototyping tank game (make a better name for this)-->
+                <!--Multiplayer-->
                 <article class = "panel">
-                    <div style = "margin-bottom: 240px">
-                        <h3 style = "text-align: right;">Tank Game</h3>
-                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/nlqFv0Bn7ic?si=UmZjGGk-BOzRABuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
-                            <iframe style = "text-align: right;float:right; margin-right:80px; margin-left: 20px" width="610" height="390" src="https://www.youtube.com/embed/nlqFv0Bn7ic?si=gvZ8u0cE3OcSMQOh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div style = "margin-bottom: 220px;">
+                        <h3 style = "text-align:right;">Space Fight</h3>
+                        <img src = "images/space fight.png" alt = "Space Fight Picture" style = "width:600px; height:460px;float:right;margin-left:40px;margin-right:80px">
                         <div>
                             <div style = "font-size:170%;margin-left:80px;color:rgb(129, 76, 179);font-family:Arimo, sans-serif;font-optical-sizing: auto;font-weight:500;font-style:normal;">
+                                This is a game I made by myself during the Multiplayer Games Programming module in my second year of university. It is a multiplayer game that 
+                                uses a server-client model to allow multiple players to play the game at the same time, transmitting data between the server and the different
+                                clients using TCP and UDP protocols. It is a Space Invaders inspired game where the players have to defeat enemy ships during a set time without
+                                being defeated themselves.
+                                <br><br>
+                            </div>
+                            
+                            <div style="margin-left: 120px; float:inline-start; margin-top:30px">
+                                <a href = "space fight.html">
+                                    <img src = "images/homepage/learn more icon.png" alt = "Learn More Icon" width = 162.5 height = 117>
+                                </a>
+                            </div>
+
+                            <div style = "text-align:right;float:inline-end;background-color:rgb(129, 76, 179);border-radius:10px;">
+                                <p style = "font-size:136%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                                    Time Frame: 8 weeks
+                                    <br><br>
+                                    Team Size: 1
+                                    <br><br>
+                                    Language/Library Used: C#, Monogame
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>                
+
+                <!--Mechanics Prototyping tank game (make a better name for this)-->
+                <article class = "panel">
+                    <div style = "margin-bottom: 220px">
+                        <h3 style = "text-align: left;">Tank Game</h3>
+                        <img src = "images/tank game pic.png" alt = "Tank Game picture" style = "width:500px; height:360px; float: left; margin-right:40px;margin-left:80px">
+                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/nlqFv0Bn7ic?si=UmZjGGk-BOzRABuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+                            <!--<iframe style = "text-align: right;float:right; margin-right:80px; margin-left: 20px" width="610" height="390" src="https://www.youtube.com/embed/nlqFv0Bn7ic?si=gvZ8u0cE3OcSMQOh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+                        <div>
+                            <div style = "font-size:170%;margin-left:80px;margin-right:80px;color:rgb(129, 76, 179);font-family:Arimo, sans-serif;font-optical-sizing: auto;font-weight:500;font-style:normal;">
                                 This is a game I made as part of my first year Mechanics Protyping module.
                                 It is a game where you play as a tank and must traverse through your environment, defeating enemies using various kinds of weapons along the way, 
                                 before finally taking on a boss battle in order to escape.
                                 <br><br>
                             </div>
+                            
+                            <div style = "text-align:left;float:inline-start;background-color:rgb(129, 76, 179);border-radius:10px;margin-right: -20px">
+                                <p style = "font-size:136%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                                    Time Frame: 8 weeks
+                                    <br><br>
+                                    Team Size: 1
+                                    <br><br>
+                                    Language/Engine Used: Blueprint, Unreal
+                                </p>
+                            </div>
 
-                            <div style = "margin-left: 90px; float:inline-start; margin-top:40px">
+                            <div style = "margin-left: 90px; float:inline-start; margin-top:40px; margin-right:80px">
                                 <a href = "https://megsgem.itch.io/tank-game" style = "margin-right:20px">
                                     <img src = "images/homepage/play icon 7.png" alt = "Play Icon" width = 112.5 height = 117>
                                 </a>
@@ -174,15 +226,21 @@
                                 </a>
                             </div>
 
-                            <div style = "text-align:right;float:inline-start;background-color:rgb(129, 76, 179);border-radius:10px; margin-left: 60px; margin-right: -20px">
+                            <!--<div style = "text-align:left;float:inline-start;margin-right:40px;margin-top: 20px; background-color:rgb(129, 76, 179);border-radius:10px">
                                 <p style = "font-size:136%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
                                     Time Frame: 8 weeks
                                     <br><br>
                                     Team Size: 1
                                     <br><br>
-                                    Language/Engine Used: Blueprint, <br>Unreal
+                                    Languages/Libraries Used: C++, HLSL, DirectX 11
                                 </p>
                             </div>
+
+                            <div style = "margin-top:45px;margin-left:1330px">
+                                <a href = "graphics engine.html">
+                                    <img src = "images/homepage/learn more icon.png" alt = "Learn More Icon" width = 162.5 height = 117>
+                                </a>
+                            </div>-->
 
                         </div>
                     </div>
@@ -193,23 +251,29 @@
         </section>
         
         <!--Other Achievements section-->
-        <section class= "card" style = "margin-bottom:50px">
+        <section class= "card" style = "margin-bottom:50px;">
             <div>
                 <h2 style = "margin-right: -490px">Other Achievements</h2>
-                <!--Bet365Hackathon-->
-                <div style = "margin-left:545px; align-items: center">
-                    <div style = "margin-top: 80px; text-align: center">
-                    <img src = "images/homepage/trophy icon.png" alt = "Trophy Icon" style = "width: 150px; height: 200px; float:top;">
+                <div style="display:grid;gap:40px;grid-template-columns: repeat(2,1fr);margin-left:210px;margin-right:-280px">
+                    <!--Bet365Hackathon-->
+                    <div style = "align-items: center">
+                        <div style = "margin-top: 80px; text-align: center">
+                        <img src = "images/homepage/trophy icon.png" alt = "Trophy Icon" style = "width: 150px; height: 200px; float:top;">
+                        </div>
+                        <p style = "margin-bottom:55px; font-size: 150%; text-align:center;">
+                            Winner of the Bet365 Technical<br>
+                            Challenge Hackathon 2025
+                        </p>
                     </div>
-                    <p style = "margin-bottom:55px; font-size: 150%; text-align:center;">
-                        Winner of the Bet365 Technical<br>
-                        Challenge Hackathon 2025
-                    </p>
-                </div>
 
-                <div style = "margin-left: 40px; align-items: center;">
-
-                
+                    <div style = "align-items: center;">
+                        <div style="margin-top:80px; text-align:center">
+                        <img src="images/jam_icon.png" alt = "Jam Jar Icon" style="height:200px;float:top">
+                        </div>
+                        <p style="margin-bottom:55px; font-size:150%;text-align: center;">
+                            Completed 6 Game Jams
+                        </p>
+                    </div>
                 </div>
             </div>
         </section> 

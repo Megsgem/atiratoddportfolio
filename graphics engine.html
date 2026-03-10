@@ -14,12 +14,20 @@
 </head>
 <body>
         <h1>Graphics Engine</h1>
-        <div style = "text-align: center;">
-            <p style="font-size: 100%;">
-                <a href = "index.html" style = "text-align: center;">Home</a>
-                | 
-                <a href = "game_jams.html" style = "text-align: center;">Game Jam Submissions</a>
-            </p>
+        <div style = "text-align: center;margin-top: 2%;">
+            <article class = "links_bar" style="margin-right:60px; margin-left:60px">
+                <div>
+                    <!--<p style="font-size:100%;text-align: center;">
+                        <a href = "index.html">Home </a>
+                        |  
+                        <a href = "game_jams.html"> Game Jam Submissions </a>
+                    </p>-->
+                    <ul>
+                        <li><a href = "index.html" alt = "Home">Home</a></li>
+                        <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
+                    </ul>
+                </div>
+            </article>
         </div>
 
         <section class = "card">
@@ -35,14 +43,15 @@
                         <br><br>
                         Main Contributions:
                         <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                            - Per-Pixel Phong Shading<br>
                             - Camera System<br>
                             - Alpha Clipping and Transparency<br>
                             - Writing Shaders<br>
-
+                            - Asset Database using JSON
                         </div>
                     </p>
                 </div>
-                <p style = "margin-right: 50px;margin-top:60px;">
+                <p style = "margin-right: 50px;margin-top:85px;">
                     <br>
                     This is a project I created as part of the Real Time Rendering Framework module in my second year of university. Over the course of this module I was given a framework and
                     was tasked with creating a scene which would showcase a variety of techniques and skills that would be used when building a graphics engine such as implementing 

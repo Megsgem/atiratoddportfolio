@@ -4,7 +4,7 @@ h1{
   font-weight: 700;
   font-style: normal;
   font-size:600%;
-  color:indigo;
+  color:#3C096C;
   text-align: center;
   margin-top:40px;
   margin-bottom: 10px;
@@ -19,7 +19,7 @@ h2{
   margin-right:20px;
   font-size:300%;
   color:rgb(250, 250, 250);
-  background-color:indigo;
+  background-color:#5A189A;
   padding: 0.5%;
 }
 
@@ -41,6 +41,7 @@ h4{
   font-style: normal;
   margin-left:120px;
   margin-right:120px;
+  color:#5A189A;
 }
 
 h5{
@@ -106,6 +107,44 @@ hr{
     height:2px;
 }
 
+ul{
+    list-style: none;
+    min-width: 40%;
+    margin-left:3%;
+    margin-top:0%;
+    margin-bottom:-0.15%;
+    padding:0%;
+    overflow: hidden;
+    text-align: center;
+}
+
+li{
+    font-family: monospace;
+    float:left;
+    padding:2%;
+    padding-left:3%;
+    padding-right:3%;
+    display: list-item;
+    unicode-bidi: isolate;
+}
+
+ul li a:link{
+    color:rgb(255, 251, 245);
+    font-size: 150%;
+    text-decoration: none;
+}
+
+ul li a:hover{
+    font-size:150%;
+    text-decoration: none;
+}
+
+ul li a:visited{
+    color:rgb(255, 251, 245);
+    font-size: 150%;
+    text-decoration: none;
+}
+
 .flipbook{
   position:relative;
   width:500px;
@@ -149,4 +188,19 @@ hr{
   margin-right:40px;
   margin-top:20px;
   margin-bottom:20px
+}
+
+.links_bar{
+  background-color: rgb(99, 50, 145); 
+  margin-right:80px;
+  margin-left: 80px;
+  margin:0.8%;
+  padding-left:32.8%;
+  padding-right:2%;
+  border-radius: 6px;
+}
+
+.active{
+  background-color: rgb(174, 115, 230);
+  color:rgb(145, 60, 194);
 }

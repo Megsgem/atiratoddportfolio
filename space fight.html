@@ -70,6 +70,9 @@
                 <article class = "panel">
                     <!--Data Replication-->
                     <h3 style="margin-bottom:5px; margin-top:30px">Data Replication</h3>
+                    <div style="float:right;text-align:center;margin-right:80px;margin-left:40px;margin-top:15px;font-size:130%;">
+                        <img src="videos/data replication.gif" alt="Data Replication GIF" width="680" height="420">
+                    </div>
                     <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px">
                         Data replication is when data is transmitted from one client on a network to another and is very important for multiplayer games as it is essential for the 
                         experience of the players that they all see and experience the same world state. While creating this game, there were many pieces of data that I needed to replicate 
@@ -134,7 +137,9 @@
                         had disconnected from the game at this point. To solve this, I instead sent this data as soon as the conditions for the player's game ending were met (the player 
                         dies, their time runs out or all enemies are defeated) but before the game's state for that player had been changed to 'Ending'. This meant that once a player's
                         game ended, the other players would recieve their score and thus it would be able to be displayed on the score board on that client once the game has ended for 
-                        them too.
+                        them too. In the end, I didn't use this particular method of replicating the player's scores as I decided that they should have a combined score as a team instead
+                        of individual scores as I felt it would be better for the teamwork aspect of the game but I still learned a lot from solving this issue. Currently, the players' 
+                        team score is replicated across clients and is updated on all clients whenever a player defeats one of the enemies.
                     </p>
                 </article>
             </div>

@@ -12,17 +12,18 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
-    <body>
-        <h1>After Dark</h1>
-        <article class = "links_bar" style="margin-right:60px;margin-left: 60px;">
-                    <!--<p style="font-size:100%;text-align: center;">
-                        <a href = "index.html">Home </a>
-                        |  
-                        <a href = "game_jams.html"> Game Jam Submissions </a>
-                    </p>-->
+    <body id="body">
+        <div style="float: inline-end; margin-top:1.5vw; margin-right:2.5vw">
+            <button id="moon_button" onclick="toggleDarkMode()" class="moon_button"><img id="dark_mode_icon" src="images/moon_icon.png" alt="moon icon" width=50 height=50></button>
+        </div>
+        <br><br><br>
+        <h1 id="title">After Dark</h1>
+        <article class = "links_bar" style="margin-right:80px;margin-left: 80px;">
             <ul>
                 <li><a href = "index.html" alt = "Home">Home</a></li>
+                <!--<li><a href="projects.html" alt="Projects">Projects</a></li>-->
                 <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
             </ul>
         </article>
@@ -47,7 +48,7 @@
                         </div>
                     </p>
                 </div>
-                <p style = "margin-right: 50px">
+                <p style = "margin-right: 50px" id="text">
                     This is the game I made for the UKIE Student Game Jam 2025 where the theme of the jam was 'Contrast'.
                     The duration of the jam was 36 hours during which I used C# and Unity to program all of the mechanics 
                     for the game including the 'switching' mechanic which is central to the gameplay.
@@ -61,7 +62,7 @@
                     <br><br>
                     <div style="align-items: center; margin-left: 50px; text-align: center;">
                         <a href = "https://megsgem.itch.io/after-dark">
-                            <img src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
+                            <img class="play_icon" src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
                         </a>
                     </div>
                 </p>
@@ -77,7 +78,7 @@
                         <div style="float:right;text-align:center;margin-left:40px;margin-top:15px;margin-bottom:15px; margin-right:80px">
                             <img src="videos/switching mechanic.gif" alt="Switching Mechanic GIF" width="700" height="400">
                         </div>
-                        <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px">
+                        <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px; margin-bottom: 1vw;" class="text">
                             One of the main mechanics of this game is the mechanics that allows the player to switch between light and dark.
                             Not only is this mechanic the way that the game fits into the theme of the jam as it means that the contrast between light and dark is a central part of the game
                             but it also allows the player to use platforms that they previously couldn't access.
@@ -114,7 +115,7 @@
                         <div style="float:right;text-align:center;margin-right:80px;margin-left:50px;margin-top:15px;margin-bottom:15px;">
                             <img src="videos/jumping.gif" alt="Fishing Mechanic GIF" width="600" height="400">
                         </div>
-                        <p style="margin-top:15px; font-size:150%;margin-bottom:35px; margin-right:80px; margin-left:80px">
+                        <p style="margin-top:15px; font-size:150%;margin-bottom:35px; margin-right:80px; margin-left:80px;margin-bottom: 1vw;" class="text">
                             Another important feature of the game is the player's movement. This was my first time making a 2D platformer game so initially it was somewhat difficult for me to 
                             figure out how to implement some aspects of the player's movement. Making the player move from left to right was fairly simple as this was something I had done in 
                             other games but the main thing I experienced trouble with was the jumping mechanic.
@@ -169,13 +170,12 @@
                     </div>
                 </article>
             </div>
-        </section>
-        
+        </section>  
         
         <section class = "card" style = "margin-bottom: 50px;">
             <div>
                 <h2>What I Learned</h2>
-                <p style="font-size:160%;margin-bottom:50px; margin-right: 50px; margin-left: 50px;">
+                <p style="margin-bottom:50px;" class="learned_text">
                     One of the main things I learned from making this game and taking part in this game jam was problem solving quickly and managing priorites when working to a short 
                     deadline. Since the jam was only 36 hours long, I had to find and fix problems in a very short space of time, meaning that certain features and mechanics had to be 
                     prioritised over others. For example, I knew that the both the switching mechanics and the jumping mechanics were going to be central mechanics of the game (the first

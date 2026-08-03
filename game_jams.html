@@ -12,20 +12,21 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
-    <body>
-        <h1>Game Jam Submissions</h1>
+    <body id="body">
+        <div style="float: inline-end; margin-top:1.5vw; margin-right:2.5vw">
+            <button id="moon_button" onclick="toggleDarkMode()" class="moon_button"><img id="dark_mode_icon" src="images/moon_icon.png" alt="moon icon" width=50 height=50></button>
+        </div>
+        <br><br><br>
+        <h1 id="title">Game Jam Submissions</h1>
         <h4 style = "font-size: 190%; text-align:center;margin-top:0">These are some of the projects I have submitted to various game jams</h4>
         <div style = "text-align: center;">
             <article class = "links_bar" style="margin-right:60px; margin-left:60px">
                 <div>
-                    <!--<p style="font-size:100%;text-align: center;">
-                        <a href = "index.html">Home </a>
-                        |  
-                        <a href = "game_jams.html"> Game Jam Submissions </a>
-                    </p>-->
                     <ul>
                         <li><a href = "index.html" alt = "Home">Home</a></li>
+                        <!--<li><a href="projects.html" alt="Projects">Projects</a></li>-->
                         <li class = "active"><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
                     </ul>
                 </div>
@@ -36,7 +37,7 @@
             <div>
                 <h2 style = "margin-left:50px; margin-right: 50px">UKIE Student Games Jam - After Dark</h2>
                 <div style = "margin-left:80px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
-                    <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                    <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px" id="text">
                         Theme: Contrast
                         <br><br>
                         Time Frame: 36 hours
@@ -63,7 +64,7 @@
         <section class = "card">
             <div>
                 <h2 style = "text-align: right; margin-right: 50px; margin-left:50px">Fishing Horror Jam - Secrets of Stillwater Lake</h2>
-                <div style = "margin-right: 80px; text-align:right;float:right;background-color:rgb(129, 76, 179);border-radius:10px">
+                <div style = "margin-right: 80px; text-align:right;float:right;background-color:rgb(129, 76, 179);border-radius:10px;margin-left:20px">
                     <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
                         Time Frame: 11 days
                         <br><br>

@@ -12,17 +12,18 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
-    <body>
-        <h1>Tank Game</h1>
+    <body id="body">
+        <div style="float: inline-end; margin-top:1.5vw; margin-right:2.5vw">
+            <button id="moon_button" onclick="toggleDarkMode()" class="moon_button"><img id="dark_mode_icon" src="images/moon_icon.png" alt="moon icon" width=50 height=50></button>
+        </div>
+        <br><br><br>
+        <h1 id="title">Tank Game</h1>
         <article class = "links_bar" style="margin-right:60px;margin-left: 60px;">
-                    <!--<p style="font-size:100%;text-align: center;">
-                        <a href = "index.html">Home </a>
-                        |  
-                        <a href = "game_jams.html"> Game Jam Submissions </a>
-                    </p>-->
             <ul>
                 <li><a href = "index.html" alt = "Home">Home</a></li>
+                <!--<li><a href="projects.html" alt="Projects">Projects</a></li>-->
                 <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
             </ul>
         </article>
@@ -47,7 +48,7 @@
                         </div>
                     </p>
                 </div>
-                <p style = "margin-left:50px; margin-right: 50px;">
+                <p style = "margin-left:50px; margin-right: 50px;" id="text">
                     This is a game I made as part of the Mechanics Prototyping module I took in my first year of university. We were provided with a framework which contained some base
                     functionality for certain things such as the player and their starting weapon and we were expected to build upon this framework in order to create our game. In the
                     game, you have to navigate through the level, battling enemies using a variety of different weapons, avoiding lava and other environmental dangers before finally 
@@ -55,7 +56,7 @@
                     <br>
                     <div style="text-align: center; align-items: center; margin-right: 120px;margin-left:50px;">
                         <a href = "https://megsgem.itch.io/tank-game">
-                            <img src = "images/homepage/play icon 7.png" alt = "Play Icon" width = 90 height = 93.6>
+                            <img class="play_icon" src = "images/homepage/play icon 7.png" alt = "Play Icon" width = 90 height = 93.6>
                         </a>
                     </div>
                 </p>
@@ -74,7 +75,7 @@
                                 <source src="videos/doors video.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <p style="margin-top:15px; font-size:150%">
+                        <p style="margin-top:15px; font-size:150%;margin-bottom:1vw;margin-right:4.2vw" class="text">
                             One of the things that I made that wasn't based on anything we were given in the framework was the functionality for the doors in my game. The main thing I wanted the doors
                             in my game to do was to just open smoothly when the player got near and to close when they moved away. However, I did also need to make doors that locked specifically for the boss
                             room.
@@ -123,7 +124,7 @@
                                 <source src="videos/enemies video.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <p style="margin-top:15px;font-size:150%">
+                        <p style="margin-top:15px;font-size:150%; margin-bottom:1vw;margin-right: 4.2vw;" class="text">
                             In total, there are 6 types of enemies that the player encounters throughout the game as well as the final boss enemy they battle at the end and I wanted each of
                             these enemies to feel different to one another. One way I did this was with the way the enemy's AI would dictate the way it moved and the way in which it attacked.
                             <br><br>
@@ -161,7 +162,7 @@
                             </video>-->
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/AXFGQndjFZA?si=2o1xrZhAMY45DN0u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
-                        <p style="font-size:150%;margin-top:15px;margin-bottom: 35px;">
+                        <p style="font-size:150%;margin-top:15px;margin-bottom: 35px;margin-right:4.2vw" class="text">
                             For this game, I wanted both the player and the enemies to have a relatively wide range of unique weapons which they could use. The framework we were provided with
                             provided a base weapon class which I used to build my weapons upon. I made 4 additional weapons on top of the base weapon class and I wanted each weapon to not only
                             do different amounts of damage and for the projectiles to work differently but also for each weapon to have a different feel to them.
@@ -202,7 +203,7 @@
         <section class = "card">
             <div>
                 <h2>What I Learned</h2>
-                <p style="font-size:160%; margin-left:50px; margin-right:50px">
+                <p class="learned_text">
                     During the process of making this game, I learned a lot about Blueprint as this was my first time working with it and I also learned quite a lot about how it can be useful
                     especially when prototyping features for a game. While I do still prefer C++ as I feel that it provides more control over data and broader access to functions and variables,
                     Blueprint is something I may continue to use in the future if I need to quickly prototype features or mechanics. 
@@ -222,7 +223,7 @@
         <div style="text-align: left;margin-left:120px">
             <img src="images/tank game page/bubble diagram pic.png" alt="bubble diagram" style="width:800px;height:480px">
         </div>
-        <p style="margin-bottom: -120px;font-size:130%;margin-left:120px;text-align: left;margin-top:-20px">
+        <p style="margin-bottom: -120px;font-size:130%;margin-left:120px;text-align: left;margin-top:-20px" class="captions_text">
             <br><br>
             A bubble diagram I made during the project in order to plan out the flow of the game<span style="margin-right:260px"></span>A video of a full playthrough of my game
             <br>
@@ -230,6 +231,6 @@
         <div style="position:relative;width:1500px;height:833px;margin-right:auto;margin-left:auto;display:block">
             <iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/awyid/fxzh/"  seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe>
         </div>
-        <p style="margin-top:-170px;font-size:130%;margin-left:650px;">A flipbook of the diagrams I made to go alongside this project</p>
+        <p style="margin-top:-170px;font-size:130%;margin-left:650px;" class="captions_text">A flipbook of the diagrams I made to go alongside this project</p>
     </body>
 </html>

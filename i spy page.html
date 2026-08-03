@@ -12,19 +12,20 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
-    <body>
-        <h1>I Spy</h1>
+    <body id="body">
+        <div style="float: inline-end; margin-top:1.5vw; margin-right:2.5vw">
+            <button id="moon_button" onclick="toggleDarkMode()" class="moon_button"><img id="dark_mode_icon" src="images/moon_icon.png" alt="moon icon" width=50 height=50></button>
+        </div>
+        <br><br><br>
+        <h1 id="title">I Spy</h1>
         <div style = "text-align: center; margin-top:2%">
             <article class = "links_bar" style="margin-right:60px; margin-left:60px">
                 <div>
-                    <!--<p style="font-size:100%;text-align: center;">
-                        <a href = "index.html">Home </a>
-                        |  
-                        <a href = "game_jams.html"> Game Jam Submissions </a>
-                    </p>-->
                     <ul>
                         <li><a href = "index.html" alt = "Home">Home</a></li>
+                        <!--<li><a href="projects.html" alt="Projects">Projects</a></li>-->
                         <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
                     </ul>
                 </div>
@@ -50,14 +51,14 @@
                         </div>
                     </p>
                 </div>
-                <p style = "margin-right: 50px">
+                <p style = "margin-right: 50px" id="text">
                     This is the game I made for the Secret Level Jam, a jam where the game submitted had to have a secret level.
                     The jam's theme was 'Watch Me' so I decided to make a game set in a world where everyone is always being watched. The game is a 2D sidescroller and I programmed 
                     everything currently in the game including the player's movement, the movement of the eyes and the way the levels are managed.
                     <br><br>
                     <div style="margin-right:100px;margin-left:50px; text-align: center;align-items: center;">
                         <a href = "https://megsgem.itch.io/i-spy">
-                            <img src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
+                            <img class="play_icon" src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
                         </a>
                     </div>
                 </p>
@@ -69,11 +70,11 @@
                 <!--Eye Movement-->
                 <article class = "panel">
                     <div>
-                        <h3 style="margin-bottom:5px; margin-top:30px">Eye Movement</h3>
+                    <h3 style="margin-bottom:5px; margin-top:30px">Eye Movement</h3>
                     <div style="float:right;text-align:center;margin-right:80px;margin-left:40px;margin-top:15px;font-size:130%;">
                         <img src="videos/eye movement.gif" alt="Eye Movement GIF" width="450" height="400">
                     </div>
-                    <p style="margin-top:15px;font-size:150%;margin-left:80px;margin-right: 80px;">
+                    <p style="margin-top:15px;font-size:150%;margin-left:80px;margin-right: 80px;margin-bottom: 1vw;" class="text">
                         One of the features of this game that I focused on while making it was the movement of the eyes in the background. While this doesn't currently affect the gameplay, 
                         it was something I felt would be important for the environment and atmosphere of the game as it would emphasise the feeling of the player being watched.
                         <br><br>
@@ -109,7 +110,7 @@
         <section class = "card" style = "margin-bottom: 50px;">
             <div>
                 <h2>What I Learned</h2>
-                <p style="font-size:160%; margin-left: 50px; margin-right:50px">
+                <p class="learned_text">
                     While making this game I furthered my time management skills and my skills at fast problem solving and prototyping of mechanics in order to create this game
                     within the span of a few days. While making this game, I also learned a lot about better ways of creating player movement in a 2D sidescrolling game and I 
                     used this knowledge to improve other projects I had made such as the game I started making for the UKIE Student Game Jam in 2025.

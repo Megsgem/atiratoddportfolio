@@ -11,19 +11,20 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
 </head>
-<body>
-    <h1>Space Fight</h1>
+<body id="body">
+    <div style="float: inline-end; margin-top:1.5vw; margin-right:2.5vw">
+            <button id="moon_button" onclick="toggleDarkMode()" class="moon_button"><img id="dark_mode_icon" src="images/moon_icon.png" alt="moon icon" width=50 height=50></button>
+    </div>
+    <br><br><br>
+    <h1 id="title">Space Fight</h1>
         <div style = "text-align: center;margin-top: 2%;">
             <article class = "links_bar" style="align-items: center; margin-right:80px; margin-left:80px">
                 <div>
-                    <!--<p style="font-size:100%;text-align: center;">
-                        <a href = "index.html">Home </a>
-                        |  
-                        <a href = "game_jams.html"> Game Jam Submissions </a>
-                    </p>-->
                     <ul>
                         <li><a href = "index.html" alt = "Home">Home</a></li>
+                        <!--<li><a href="projects.html" alt="Projects">Projects</a></li>-->
                         <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
                     </ul>
                 </div>
@@ -52,7 +53,7 @@
                         </div>
                     </p>
                 </div>
-                <p style = "margin-right: 50px;">
+                <p style = "margin-right: 50px;" id="text">
                     This is a game that I made as part of the Multiplayer Games Module that I took in my second year of university. Over the course of creating this game, I worked with
                     multithreading to create a networked game and used a server-client model to allow multiple players play the game with each other. I was given a framework as part of
                     this module which contained a basic game scene as well as the things within this scene such as game objects but I built upon this framework to create my own game and 
@@ -73,7 +74,7 @@
                     <div style="float:right;text-align:center;margin-right:80px;margin-left:40px;margin-top:15px;font-size:130%;">
                         <img src="videos/data replication.gif" alt="Data Replication GIF" width="680" height="420">
                     </div>
-                    <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px">
+                    <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px;margin-bottom:1vw" class="text">
                         Data replication is when data is transmitted from one client on a network to another and is very important for multiplayer games as it is essential for the 
                         experience of the players that they all see and experience the same world state. While creating this game, there were many pieces of data that I needed to replicate 
                         across the clients connected to the server and during the process of implementing ways to do this, I encountered various different problems when replicating the 
@@ -148,7 +149,7 @@
         <section class = "card">
             <div>
                 <h2>What I Learned</h2>
-                <p style="font-size:160%;margin-bottom:55px; margin-right:50px; margin-left:50px">
+                <p style="margin-bottom:55px;" class="learned_text">
                     This project was the first time I had encountered multithreading and building networked games and over the course of working on this project I learned a lot about both
                     of these things as well as the solutions to the new and unique challenges they presented and many of the things I learned when working on this project are things I will
                     use in the future.
@@ -162,7 +163,7 @@
             <video width = "1200" height="800" controls>
                 <source src="videos/space fight playthrough.mp4" type="video/mp4">
             </video>
-            <p style="font-size:160%;margin-bottom:55px; margin-right:50px; margin-left:50px">
+            <p style="font-size:160%;margin-bottom:55px; margin-right:50px; margin-left:50px" class="captions_text">
                 A video of a playthrough of the game
             </p>
         </div>

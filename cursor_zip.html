@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Atira Todd Portfolio - Cursor.zip</title>
+        <link rel="icon" type="image/x-icon" href="images/gem icon.png">
+        <!--Oswald font embed code-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        <!--Arimo font embed code-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body id="body">
+        <div style="float: inline-end; margin-top:1.5vw; margin-right:2.5vw">
+            <button id="moon_button" onclick="toggleDarkMode()" class="moon_button"><img id="dark_mode_icon" src="images/moon_icon.png" alt="moon icon" width=50 height=50></button>
+        </div>
+        <br><br><br>
+        <h1 id="title">Cursor.zip</h1>
+        <article class = "links_bar" style="margin-right:60px;margin-left: 60px;">
+            <ul>
+                <li><a href = "index.html" alt = "Home">Home</a></li>
+                <li><a href="projects.html" alt="Projects">Projects</a></li>
+                <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
+            </ul>
+        </article>
+
+        <section class = "card">
+            <div>
+                <h2>About the Game</h2>
+                <div style = "margin-bottom:20px;margin-left:50px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
+                    <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                        Time Frame: 8 weeks
+                        <br><br>
+                        Team Size: 23
+                        <br><br>
+                        Language/Engine Used: C#, Unity
+                        <br><br>
+                        Main Contributions:
+                        <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                            - UI Programming<br>
+                            - Checkpoints<br>
+                            - Player Death & Respawn/Restart System<br>
+                        </div>
+                    </p>
+                </div>
+                <p style = "margin-right: 50px" id="text">
+                    This is a game I made as part of a team during my Junior Collaborative Games Development module during my second year of university. During the course of this
+                    module, I worked with other members of the team, across various different disciplines such as art and design, to implement the different aspects of the game that
+                    I was tasked with creating by senior members of the team.
+                    <!--11th out of 37 games-->
+                    <br><br>
+                    It is a 3D speedrunning platformer game where you play as Cursor and must use your different abilities such as wall running and grappling to traverse the 
+                    techno-wave cyberspace environment as fast as possible.
+                    <br><br>
+                    <div style="align-items: center; margin-left: 50px; text-align: center;">
+                        <a href = "https://steveybr.itch.io/cursorzip">
+                            <img class="play_icon" src = "images/homepage/play icon 7.png" alt = "Controller icon" width = 90 height = 93.6>
+                        </a>
+                    </div>
+                </p>
+            </div>
+        </section>
+
+        <section class="card">
+            <div>
+                <!--Main Menu UI-->
+                <article class="panel">
+                    <div>
+                        <h3 style="margin-bottom:5px; margin-top:30px">Main Menu UI</h3>
+                        <p style="margin-top:15px;font-size:150%;margin-left:80px;margin-right: 80px;margin-bottom: 1vw;" class="text">
+                            One of my main tasks and contributions to this project was the programming for the UI in the main menu. This included not only the backend for UI of the main
+                            menu screen itself but also for the related screens which the buttons of the main menu screen lead to. The designers within the team had specified 
+                            that these would be a level selection screen, a controls screen and a settings screen.
+                            <br><br>
+                            I first started working on the functionality for the main menu screen itself such as making sure the player could navigate the buttons on this screen 
+                            using either the keyboard or a controller or a mouse.
+                            <!--JSON file system-->
+                        </p>
+                    </div>
+                </article>
+
+                <!--Game UI-->
+                <article class="panel">
+                    <div>
+                        <h3 style="margin-bottom: 5px; margin-top: 30px;">Game UI</h3>
+                        <p style="margin-top:15px;font-size:150%;margin-left:80px;margin-right: 80px;margin-bottom: 1vw;" class="text">
+
+                        </p>
+                    </div>
+                </article>
+
+                <!--Checkpoints & Death & Respawn/Restart-->
+                <article class="panel">
+                    <div>
+                        <h3 style="margin-bottom: 5px; margin-top: 30px;">Checkpoints & Player Death System</h3>
+                        <p style="margin-top:15px;font-size:150%;margin-left:80px;margin-right: 80px;margin-bottom: 1vw;" class="text">
+                            Another big contribution I made to this project were the checkpoints in the game as well as related things such as player death and the ability for the 
+                            player to restart and respawn.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </body>
+</html>

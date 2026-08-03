@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Atira Todd Portfolio - Physics Simulation</title>
+        <link rel="icon" type="image/x-icon" href="images/gem icon.png">
+        <!--Oswald font embed code-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        <!--Arimo font embed code-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body id="body">
+        <div style="float: inline-end; margin-top:1.5vw; margin-right:2.5vw">
+        <button id="moon_button" onclick="toggleDarkMode()" class="moon_button"><img id="dark_mode_icon" src="images/moon_icon.png" alt="moon icon" width=50 height=50></button>
+    </div>
+    <br><br><br>
+    <h1 id="title">Physics Simulation</h1>
+    <div style = "text-align: center;margin-top: 2%;">
+        <article class = "links_bar" style="margin-right:60px; margin-left:60px">
+            <div>
+                <ul>
+                    <li><a href = "index.html" alt = "Home">Home</a></li>
+                    <li><a href="projects.html" alt="Projects">Projects</a></li>
+                    <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
+                </ul>
+            </div>
+        </article>
+    </div>
+
+    <section class = "card">
+        <div>
+            <h2>About the Project</h2>
+            <div style = "margin-bottom:20px;margin-left:50px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
+                <p style = "font-size:130%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                    Time Frame: 8 weeks
+                    <br><br>
+                    Team Size: 1
+                    <br><br>
+                    Languages/Libraries used: C++, DirectX 11
+                    <br><br>
+                    Main Contributions:
+                    <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                        - Per-Pixel Phong Shading<br>
+                        - Camera System<br>
+                        - Alpha Clipping and Transparency<br>
+                        - Writing Shaders<br>
+                        - Asset Database using JSON
+                    </div>
+                </p>
+            </div>
+            <p style = "margin-right: 50px;margin-top:85px;" id="text">
+                <br>
+                This is a project I created as part of the Applied Maths for Games module during my second year of university.
+            </p>
+        </div>
+    </section>
+    </body>
+</html>

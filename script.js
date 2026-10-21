@@ -212,7 +212,7 @@ function searchProjects(){
   }
 }
 
-let slideNum = 1;
+/*let slideNum = 1;
 ShowSlide(slideNum);
 
 function ShowSlide(index){
@@ -240,7 +240,7 @@ function changeSlide(index){
 function setCurrentSlide(index){
     slideNum = index;
     ShowSlide(slideNum);
-}
+}*/
 
 function toggleDarkMode(){
     var i, j, k, l, a, b;

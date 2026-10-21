@@ -23,7 +23,8 @@
         <article class = "links_bar" style="margin-right:60px;margin-left: 60px;">
             <ul>
                 <li><a href = "index.html" alt = "Home">Home</a></li>
-                <li><a href="projects.html" alt="Projects">Projects</a></li>
+                <li><a href = "about me.html" alt = "About Me">About Me</a></li>
+                <li><a href="projects.html" alt="Other Projects">Other Projects</a></li>
                 <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
             </ul>
         </article>
@@ -77,7 +78,8 @@
                             that these would be a level selection screen, a controls screen and a settings screen.
                             <br><br>
                             I first started working on the functionality for the main menu screen itself such as making sure the player could navigate the buttons on this screen 
-                            using either the keyboard or a controller or a mouse.
+                            using either the keyboard or a controller or a mouse. I already had some experience doing this from previous projects I had worked on and thus I applied
+                            the knowledge I already had to this task.
                             <!--JSON file system-->
                         </p>
                     </div>
@@ -88,7 +90,7 @@
                     <div>
                         <h3 style="margin-bottom: 5px; margin-top: 30px;">Game UI</h3>
                         <p style="margin-top:15px;font-size:150%;margin-left:80px;margin-right: 80px;margin-bottom: 1vw;" class="text">
-
+                            Another thing that I was tasked with making for this game was the 
                         </p>
                     </div>
                 </article>
@@ -97,12 +99,82 @@
                 <article class="panel">
                     <div>
                         <h3 style="margin-bottom: 5px; margin-top: 30px;">Checkpoints & Player Death System</h3>
-                        <p style="margin-top:15px;font-size:150%;margin-left:80px;margin-right: 80px;margin-bottom: 1vw;" class="text">
+                        <p style="margin-top:15px;font-size:150%;margin-left:4.2vw;margin-right: 4.2vw;margin-bottom: 1vw;" class="text">
                             Another big contribution I made to this project were the checkpoints in the game as well as related things such as player death and the ability for the 
                             player to restart and respawn.
+                            <br><br>
+                            The final version of this system would immediately respawn the player at their respawn location when they hit an obstacle or fell off the course, as well as pausing 
+                            the timer until the player had respawned. This respawn point is initially the player's start location and is updated whenever the player crosses a checkpoint, 
+                            setting it to be the checkpoint's position. These checkpoints could only be crossed once so that the player would respawn at the checkpoint they had most recently 
+                            crossed. The player can also press the R key to fully restart the level, meaning that they not only restart at their start location but that things such as their time and number
+                            of collectables collected is reset.
+                            <br>
+                        </p>
+                        <h6>Iterative Development</h6>
+                        <p style="margin-top:15px;font-size:150%;margin-left:4.2vw;margin-right: 4.2vw;margin-bottom: 1.5vw;" class="text">
+                            Throughout the development process, I made sure to get feedback both from other members of my team and through playtesting with people outside of the team. As a 
+                            result of this feedback, the player checkpoints and death system went through many iterations before a final version for it was decided upon. This ensured that 
+                            myself, the other members of my team and the people playing the game were happy with the way this system felt.
+
+                            <div style="float:right;text-align:center;margin-right:80px;margin-left:40px;font-size:130%;">
+                                <iframe width="448" height="242" src="https://www.youtube.com/embed/V6M_ffSNeY4?si=kFURjpMk0awPDoW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <p style="margin-top:15px;font-size:150%;margin-left:4.2vw;margin-right: 4.2vw;margin-bottom: 1.5vw;" class="text">
+                            Even before I actually started creating the functionality of this system, I consulted the design document created by the designers in my team and also discussed
+                            the specifics of this system with them so I could fully understand exactly how it was meant to work and feel for the player. Once I had a full understanding of 
+                            what the functionality of this system should be, I created an initial prototype of this system which had most of the basic functions of this system such as 
+                            changing the player's respawn point when they cross a checkpoint, ensuring the player could only cross a checkpoint once and respawning the player at the correct
+                            place depending on whether they were respawning or restarting the level.
+                            <br><br>
+                            In this prototype, upon death, the player was presented with a menu which allowed them to choose whether they respawned or restarted the level, however, after 
+                            showing the prototype to both the design team and senior members of the programming team, it was decided that the player should instead just instantly respawn
+                            upon death. If the player wanted to respawn, it was decided that they could do this through the pause menu. After recieving this feedback, I created a second 
+                            prototype which not only implemented the changes suggested, but also had some additional features outlined in the design document which I hadn't yet implemented
+                            such as the ability for the player to decide whether the checkpoints in the level were enabled or disabled.
+                            <br><br>
+                            After I created this second prototype, another member of the team created the timer for the level so, I then had to implement functionality for pausing this 
+                            timer while the player was dead and resetting it when the player restarted the level. I then showed this final prototype to the other memebers of my team and,
+                            after a few refinements to make it feel more polished, it was decided that this was the version of the system that would be implemented into the game. However,
+                            after feedback from playtesting with other people from outside the team, I made one final adjustment was made which allowed the player to restart the level by 
+                            pressing the R key as well as through the pause menu.
+                            <!--Before I started implementing these features in the game, I first consulted the design team as well as the design document created by them in order
+                            to ensure I knew the specifics of how these features were meant to work and feel for the player.
+                            <br><br>
+                            Once I had done this, I created an initial prototype for these features based on what was outlined by the design team. I first started working on the
+                            intial prototype for the checkpoint objects and their functionality which, once the player had crossed the checkpoint, would update the player's respawn point
+                            to be the location of the checkpoint as well as updating the checkpoint's state to store that it had been crossed. If a checkpoint had already been 
+                            crossed, it couldn't be used again so the player's respawn point would always be set to the location of the most recent checkpoint they had crossed. Programming
+                            this functionality was fairly simple as I just created a variable which stored the player's respawn point which was initially the player's start point but was 
+                            updated to the checkpoint's position once it had been crossed. The checkpoint would also have a boolean variable which would store if it had already been crossed
+                            so that if it had already been crossed, the player's respawn point wouldn't be updated. I also started working on the player death and respawn system which would
+                            move the player to their respawn point once they died. At this stage in the project, the player was presented with a menu upon death which would allow them to 
+                            choose if they wanted to respawn or whether they wanted to restart the level which would move them back to the beginning of the level and reset the clock.
+                            <br><br>
+                            After this initial prototype had been created, I checked in with the design team again to see whether the prototype aligned with what they wanted. It was decided that 
+                            the player wouldn't be able to choose whether they respawned or reset the level upon death but instead would always respawn, while the ability to reset the level would
+                            be mapped to a key press.
+                            <br><br>
+                            I took this feedback into consideration and started updating and refining the initial prototypes I had made so they would fit what the design team 
+                            wanted and would also feel more polished. I started by first removing the respawn/restart menu in line with the design team's feedback and instead
+                            used the functionality I had already created to always respawn the player upon death and allow them to reset the level upon pressing a key. -->
+                            </p>
                         </p>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <section class = "card" style = "margin-bottom: 50px;">
+            <div>
+                <h2>What I Learned</h2>
+                <p style="margin-bottom:30px;" class="learned_text">
+                    This was the first game that I made as part of a large team and I learned a lot over the course of the project. Some of the most important things I learned 
+                    were about what working to create a game as part of a larger team was like such as communicating effectively with others and how to use good version control 
+                    in this setting. These are skills that I will continue using and hope to further in future team projects.
+                    <br><br>
+                    I also learned many new things while working on this project about UI programming in Unity as well as how to use a JSON file system for data persistence 
+                    across scenes, both of which are things that I will definitely use when making games in the future.
+                </p>
             </div>
         </section>
     </body>

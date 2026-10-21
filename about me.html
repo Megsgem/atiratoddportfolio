@@ -14,8 +14,12 @@
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
     </head>
-    <body>
-        <h1>About Me</h1>
+    <body id="body">
+        <div style="float: inline-end; margin-top:1.5vw; margin-right:2.5vw">
+            <button id="moon_button" onclick="toggleDarkMode()" class="moon_button"><img id="dark_mode_icon" src="images/moon_icon.png" alt="moon icon" width=50 height=50></button>
+        </div>
+        <br><br><br>
+        <h1 id="title">About Me</h1>
         <!--Github and LinkedIn links-->
         <div style="text-align: center;">
             <a href="https://github.com/Megsgem">
@@ -34,6 +38,8 @@
                     </p>-->
                     <ul>
                         <li><a href = "index.html" alt = "Home">Home</a></li>
+                        <li class = "active"><a href = "about me.html" alt = "About Me">About Me</a></li>
+                        <!--<li><a href="projects.html" alt="Other Projects">Other Projects</a></li>-->
                         <li><a href="game_jams.html" alt="Game Jam Submissions">Game Jam Submissions</a></li>
                     </ul>
                 </div>
@@ -43,8 +49,8 @@
             <div>
                 <h2>Who I Am</h2>
                 <img src = "images/homepage/Atira Todd 2.jpg" alt = "Picture of me" style="width:405px; height:375px; float:right;margin-top: -20px;margin-bottom: 20px;margin-right:140px;margin-left:40px; border-radius: 150%;">
-                <p style = "margin-left:60px; text-align:left; font-size:170%">
-                    Hi! I'm Atira Todd and I am a second year Games Programming Student at The University of Staffordshire. I have experience in several programming languages such
+                <p style = "text-align:left;" class="regular_text">
+                    Hi! I'm Atira Todd and I am a placement year Games Programming Student at The University of Staffordshire. I have experience in several programming languages such
                     as C++ and C# as well as experience with engines such as Unity and Unreal. I have also worked with libraries and APIs such as DirectX11, OpenGL and SDL 2.0. 
                     Additionally, I like learning new skills and programming languages which lead me to begin teaching myself HTML and CSS which I used to make this website.
                     <br><br>
@@ -55,14 +61,15 @@
         </section>
         <section class = "card" style = "margin-bottom:50px">
             <div>
-                <h2>Current Projects</h2>
-                <p style = "margin-left:60px; margin-right:60px">
-                    Alongside the projects presented in this portfolio, there are a few other projects that I am currently in the process of working on
+                <h2>Other Projects</h2>
+                <p style = "margin-right:60px" class="regular_text">
+                    Alongside the projects presented in this portfolio, there are a few other projects that I have worked on
                     outside of my studies.
                 </p>
+                <!--Campus Event Board-->
                 <article class = "panel">
-                    <div style = "margin-bottom: 100px">
-                        <h3 style="margin-bottom:15px; margin-top:10px">Campus Events Board</h3>
+                    <div style = "margin-bottom: 1.5vw">
+                        <h3 style="margin-bottom:15px; margin-top:1vw">Campus Events Board</h3>
 
                         <div style = "margin-left:80px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
                             <p style = "font-size:136%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
@@ -77,17 +84,24 @@
                                     - Wireframing and Design for All Pages<br>
                                     - Front-end Development for All Pages<br>
                                     - Filter System<br>
-                                    - Page Navigation System
+                                    - Page Navigation System<br>
+                                    - Project Presentation
                                 </div>
                             </p>
                         </div>
 
                         <div>
-                            <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px">
+                            <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px;margin-bottom:0px" class="text">
                                 This is a project that I worked on as part of a small team with 2 other students for the Project Build programme organised by the Code Cafe society at my 
                                 university, which I was selected for. The aim of this programme was to work in small teams to build a project over a short period of time in order to 
                                 simulate what collaborative working is like in industry.
-                                <br><br>
+                            </p>
+                            <div style="float:right;text-align:center;margin-right:80px;margin-left:40px;margin-top:-2.2vw;font-size:130%;">
+                                <video width = "500" height="375" controls>
+                                    <source src="videos/campus events board.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px;margin-bottom:1vw" class="text">
                                 My team decided to create a Campus Events Board which students could use to view upcoming events that would be held on campus. It was decided that
                                 I would work on frontend development with one of my other teammates working on the backend development for the website. Thus, I first created the wireframe
                                 for the different web pages that would make up our Campus Events Board in order to know how the website would be structured and laid out. I then
@@ -95,11 +109,12 @@
                                 panels showing the events - would look, making sure to keep it relatively in line with the wireframe. Once multiple pages had been created, I created a navbar
                                 at the top of each page which would allow the user to navigate between the different pages and I also made the Campus Events title a link to the home page of 
                                 the website. I then also used JavaScript to create a filter system which would allow the user to filter the different events on the page by things such as event
-                                type, location and date.
+                                type, location and date. Alongside this filter system, I also created a searching system with a search bar that allowed the user to search for an event by name and 
+                                would show any events whose names contained the search term.
                             </p>
                         </div>
-                        <h4 style="font-size: 210%;margin-left:80px;margin-top:-10px;margin-bottom:10px">What I Learned</h4>
-                        <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px">
+                        <h4 style="font-size: 210%;margin-left:80px;margin-top:-10px;margin-bottom:10px" id="h4">What I Learned</h4>
+                        <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px;margin-bottom:0.5vw" class="text">
                             Working on this project taught me a lot about working collaboratively on a project such as planning, organising and discussing the project with my teammates,
                             reviewing others' work and how to use GitHub to work on a project with multiple people which I hadn't used before and is something that has been very helpful 
                             for me in projects I have done since this one.<br><br>
@@ -107,6 +122,105 @@
                             required me to learn a lot more about CSS in order to make the website look the way the team and I wanted it to. This was also the first project that
                             I had used JavaScript for so I had to learn some of this new programming language as well.
                         </p>
+                    </div>
+                </article>
+                <!--Anti-Apartheid Legacy Trust Project-->
+                <article class = "panel">
+                    <div style = "margin-bottom: 1.5vw">
+                        <h3 style="margin-bottom:15px; margin-top:1vw">Anti-Apartheid Legacy Trust Project</h3>
+
+                        <div style = "margin-left:80px; text-align:left;float:left;margin-right:40px;background-color:rgb(129, 76, 179);border-radius:10px">
+                            <p style = "font-size:136%;color:rgb(240, 220, 255);margin-left:15px;margin-right:15px">
+                                Time Frame: 4 weeks
+                                <br><br>
+                                Team Size: 6
+                                <br><br>
+                                Languages Used: Blueprint, Unreal Engine
+                                <br><br>
+                                My Main Contributions:
+                                <div style="margin-top: -10px;font-size:130%;color:rgb(240,220,255);margin-left:15px;margin-right:15px; font-family:Arimo, sans-serif">
+                                    - Prototyping of Mechanics Concepts<br>
+                                    - Collating Research<br>
+                                    - Presentation of Research and Considerations
+                                </div>
+                            </p>
+                        </div>
+
+                        <div>
+                            <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px;margin-bottom:0px" class="text">
+                                This is a project that I worked on as part of a short internship with the Anti-Apartheid Legacy Trust. The Trust tasked myself and my team with
+                                creating a concept for a game which they could use in their upcoming museum. We were given a brief which stated that they wanted this game to teach
+                                visitors about the history being presented to them through an experience rather than simply testing their knowledge with something such as a quiz game.
+                                Alongside our pitch for this game concept, the Trust also wanted us to present research about why gamification in museums may be beneficial to them 
+                                as well as any considerations that would need to be taken into account both when potentially developing this concept and when presenting it to the public.
+                            </p>
+                            <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px;margin-bottom:1vw" class="text">
+                                My team decided to create a VR game where the player would be able to experience events related to the events of apartheid as well as the Anti-Apartheid
+                                movement. The player would experience each event from multiple points of view and would be able to make decisions and complete tasks in each scenario. 
+                                They would be able to enter each scenario by interacting with a picture or artefact in a virtual museum-like space and they would be returned to this space
+                                after completing each event. In this museum space, there would be an NPC called 'The Curator' who would guide the player from one scenario to another, making 
+                                them think about what they had just experienced, and possibly provide any relevant information the player may need to know before entering an event.
+                                <br><br>
+                                We decided to go with this idea as a VR experience would allow the player to be immersed in the events and information being presented to them. This meant that 
+                                the player would be directly engaged with the history they are learning about as they would be learning through interacting with the different events and 
+                                scenarios they are experiencing.
+                                <br><br>
+                                For this project, I collated and presented research about how gamification can be beneficial for museums and how it is being used in museums and heritage 
+                                institutions already and I also presented the considerations that the Trust would need to have with having a VR experience in their museum. I also made a 
+                                prototype for the entering events mechanic where the player would interact with a picture or an artefact to enter an associated scenario.
+                            </p>
+                        </div>
+                        <h4 style="font-size: 210%;margin-left:80px;margin-top:-10px;margin-bottom:10px" id="h4">What I Learned</h4>
+                        <p style="margin-top:15px; font-size:150%; margin-left:80px; margin-right:80px;margin-bottom:0.5vw" class="text">
+                            During the course of this project, I not only furthered my teamworking skills but I also learned what it was like working with a client as this was something
+                            I had never done before. The team had weekly meetings with a member of the Trust and sought feedback from them throughout the project before the final pitch
+                            meeting through emails. All of this gave me more experience and insight into what is expected when working and communicating with a client.<br><br>
+                            Throughout this project, I also enjoyed learning a lot about the events of apartheid as well as the anti-apartheid movement, both in Britain and globally. This 
+                            was a subject that I didn't have a lot of knowledge on before working on this project so I learned a lot through the research I did when working on this project.
+                            <br><br>
+                            During the course of this project I also learned more about how VR development in Unreal Engine works as, while I had experience developing a VR project in Unity,
+                            this was the first time I had developed a VR project using Unreal Engine.
+                        </p>
+                        
+                        <div class = "scroll_panel" style="margin-top:1.5vw">
+                            <div class = "grid">
+                                <div><img src="images/slides/slide 1.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 2.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 3.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 4.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 5.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 6.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 7.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 8.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 9.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 10.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 11.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 12.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 13.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 14.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 15.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 16.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 17.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 18.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 19.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 20.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 21.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 22.png" style="width:300%"></div>
+                                <div><img src="images/slides/slide 23.png" style="width:300%"></div>
+                            </div>
+                            
+                        </div>
+                        <!--<div class="container">
+                            <div class="slide">
+                                <img src="images/slides/slide 1.png" style="width:30%;margin-left:23vw">
+                            </div>
+                            <div class="slide">
+                                <img src="images/slides/slide 2.png" style="width:30%;margin-left:23vw">
+                            </div>
+
+                            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+                        </div>-->
                     </div>
                 </article>
             </div>

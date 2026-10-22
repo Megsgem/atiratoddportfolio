@@ -7,11 +7,14 @@ darkMode = sessionStorage.getItem("darkMode") ? JSON.parse(sessionStorage.getIte
 if (darkMode == true) {
     var i, j, k, l, a, b;
     document.getElementById('body').classList.toggle('dark_mode');
-    document.getElementById('text').classList.toggle('dark_mode_text');
-    document.getElementById('title').classList.toggle('dark_mode_title');
-    if (document.getElementById('h4') != null) {
-        document.getElementById('h4').classList.toggle('dark_mode_h4');
+
+    if (document.getElementById('text') != null) {
+        document.getElementById('text').classList.toggle('dark_mode_text');
     }
+    document.getElementById('title').classList.toggle('dark_mode_title');
+    /*if (document.getElementById('h4') != null) {
+        document.getElementById('h4').classList.toggle('dark_mode_h4');
+    }*/
 
     if (document.getElementById('filter_button') != null) {
         document.getElementById('filter_button').classList.toggle('dark_mode');
@@ -27,6 +30,16 @@ if (darkMode == true) {
 
     document.getElementById('dark_mode_icon').classList.toggle('dark_mode');
     document.getElementById('moon_button').classList.toggle('sun_button');
+
+    var h4 = document.getElementsByTagName('h4');
+    for (var w = 0; w < h4.length; w++) {
+        h4[w].className += ' dark_mode_h4';
+    }
+
+    var regText = document.getElementsByClassName('regular_text');
+    for (var z = 0; z < regText.length; z++) {
+        regText[z].className += ' dark_mode_text';
+    }
 
     var github_icon = document.getElementById('github');
     var linkedin_icon = document.getElementById('linkedin');
@@ -212,7 +225,7 @@ function searchProjects() {
     }
 }
 
-let slideNum = 1;
+/*let slideNum = 1;
 ShowSlide(slideNum);
 
 function ShowSlide(index) {
@@ -240,7 +253,7 @@ function changeSlide(index) {
 function setCurrentSlide(index) {
     slideNum = index;
     ShowSlide(slideNum);
-}
+}*/
 
 function toggleDarkMode() {
     var i, j, k, l, a, b;
@@ -250,7 +263,6 @@ function toggleDarkMode() {
     }
     document.getElementById('title').classList.toggle('dark_mode_title');
 
-    //test
     var h4 = document.getElementsByTagName('h4');
     for (var w = 0; w < h4.length; w++) {
         if (darkMode == false) {
